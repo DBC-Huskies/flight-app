@@ -4,9 +4,14 @@ class FlightsController < ApplicationController
     @search = SearchForm.new
   end
 
+  def search_results
+    @search = SearchForm.new(search_params)
+
+    @flights = @search.search
+  end
   private
   def search_params
-    params.require(:searchForm).permit(:location, :beverage, :distance)
+    params.require(:search_form).permit(:location, :beverage, :distance)
   end
 
 end
