@@ -2,15 +2,13 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
   include ActiveModel::Model
 
-  after_initialize :init
-
   attr_accessor(
     :location,
     :beverage,
     :distance
     )
 
-  def init
+  def initialize
     self.beverage = [ 'Wine', 'Beer', 'Whiskey', 'Coffee']
     self.distance = distance_array( 0, 50)
   end

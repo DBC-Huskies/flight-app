@@ -1,0 +1,10 @@
+<%= form_for @search, :url => '/search' do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :beverage %>
+  <%= f.select :beverage, options_for_select(@search.beverage) %>
+  <%= f.label :distance_in_miles %>
+  <%= f.select :distance, options_for_select(@search.distance) %>
+
+  <%= f.submit :submit %>
+<% end %>
