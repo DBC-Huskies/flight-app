@@ -1,22 +1,18 @@
+@import 'utilities/_variables';
+
 button {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  border-radius: 0px;
-  font-family: Arial;
+  border-radius: 10px;
   color: #000000;
-  font-size: 20px;
+  font-family: $font;
   padding: 10px 20px 10px 20px;
-  border: solid #000000 2px;
+  border: solid #000000 1px;
   text-decoration: none;
   background: transparent;
 }
 
 button:hover {
-  background: #dbdbdb;
-  background-image: -webkit-linear-gradient(top, #dbdbdb, #a8a8a8);
-  background-image: -moz-linear-gradient(top, #dbdbdb, #a8a8a8);
-  background-image: -ms-linear-gradient(top, #dbdbdb, #a8a8a8);
-  background-image: -o-linear-gradient(top, #dbdbdb, #a8a8a8);
-  background-image: linear-gradient(to bottom, #dbdbdb, #a8a8a8);
+  background: rgba(200, 200, 200, 0.3);
   text-decoration: none;
 }
