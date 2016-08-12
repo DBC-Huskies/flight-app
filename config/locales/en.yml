@@ -20,4 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      searchForm:
+        location: "Starting point"
+    errors:
+      models:
+        searchForm:
+          attributes:
+            location:
+              blank: "Enter the start location of your adventure!"
+            beverage:
+              blank: "Pick your beverage of choice!"
+            distance:
+              blank: "How far you want to go for the best flights?"
+
