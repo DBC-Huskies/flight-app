@@ -24,6 +24,8 @@ en:
     attributes:
       searchForm:
         location: "Starting point"
+        beverage: "Beverage of choice"
+        distance: "Distance"
     errors:
       models:
         searchForm:

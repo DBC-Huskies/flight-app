@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :flights do
     get 'search', on: :collection
+    post 'search_results', on: :collection
   end
 
   get '/search', to: 'flights#search'
