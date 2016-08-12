@@ -1,0 +1,54 @@
+@import 'utilities/_variables';
+@import 'partials/_button';
+
+body {
+  background-image: image-url('/assets/beers.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  font-family: $font;
+}
+
+main {
+  width: 80%;
+  margin: auto;
+  margin-top: 15%;
+
+  #landing-box {
+    max-width: 400px;
+    padding: 50px;
+    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgba(200, 200, 200, 0.3);
+    border-radius: 15px;
+
+    hr {
+      height: 30px;
+      border-style: solid;
+      border-color: black;
+      border-width: 1px 0 0 0;
+      border-radius: 20px;
+    }
+
+    hr:before {
+      display: block;
+      content: "";
+      height: 30px;
+      margin-top: -31px;
+      border-style: solid;
+      border-color: black;
+      border-width: 0 0 1px 0;
+      border-radius: 20px;
+    }
+
+    p {
+      margin-top:0px;
+      margin-bottom: 30px;
+    }
+  }
+
+}
+
