@@ -12,23 +12,17 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
   def init
     self.beverage = [ 'Wine', 'Beer', 'Whiskey', 'Coffee']
-    self.distance = distance_array
+    self.distance = distance_array( 0, 50)
   end
 
   validates_presence_of :location, :beverage, :distance
 
   private
-  # def distance_array
-  #   distance_array = Array.new
-  #   range = Xs.new(1)..Xs.new(50)
-  #   range.each do |num|
-  #     if num <= 10
-  #       range.step(2.5) {|x| distance_array << x}
-  #     else
-  #       range.step(5) {|x| distance_array << x}
-  #     end
-  #   end
-  #   distance_array
-  # end
+  def distance_array(min, max)
+    distance_array = [0, 2.5, 5, 7.5]
+    range = Range.new(min, max)
+    range.each { |num| distance_array << num  if num >= 10 && num % 5 == 0 }
+    distance_array
+  end
 
 end

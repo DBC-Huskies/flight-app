@@ -5,6 +5,7 @@ class FlightsController < ApplicationController
 
   end
 
+  private
   def search_params
 
   end
