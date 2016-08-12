@@ -53,4 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+
+  resources :flights do
+    get 'search', on: :collection
+  end
+
+  get '/search', to: 'flights#search'
 end
