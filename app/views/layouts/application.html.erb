@@ -2,14 +2,20 @@
 <html>
 <head>
   <title>SipTrip</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
-<body>
-<main>
-<%= yield %>
-</main>
+<body class='container'>
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer class="row">
+    <p>This is a footer</p>
+  </footer>
 </body>
 </html>
