@@ -19,12 +19,11 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
     flights = []
     surrounding_businesses.each do |business|
-      new_flight = Flight.create!(name: Faker::Hipster.sentence, theme: enum)
+      new_flight = Flight.create(name: Faker::Hipster.word, theme: enum)
       new_flight.businesses << business
       new_flight.curate_flight
       flights << new_flight
     end
-
     flights
   end
 

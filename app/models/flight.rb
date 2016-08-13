@@ -10,7 +10,7 @@ class Flight < ActiveRecord::Base
     flight_theme_int = get_theme_enum(self.theme)
     businesses_around_start = Business.where(theme: flight_theme_int).near(starting_biz, 50)
     i = 1 #Set index start as 1 because association always contains starting_biz at index 0
-    3.times do |thing|
+    2.times do |thing|
       self.businesses << businesses_around_start[i]
       i += 1
     end
