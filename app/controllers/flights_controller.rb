@@ -16,7 +16,7 @@ class FlightsController < ApplicationController
 
 
   def show
-    @business = Business.all.first
+    @businesses = Business.all
 
     render :show
   end

@@ -1,22 +1,38 @@
-
-
 function initMap() {
   var map;
-  var business_object = $('#businesses').data('url');
+  var $business_object;
+  var biz_loc_collection;
+  var i;
 
-  var myLatLng = {lat: business_object.latitude, lng: business_object.longitude};
+  $business_object = $('#businesses').data('url');
+  biz_loc_collection = [];
+  for (i = 0; i < $business_object.length; ++i) {
+    biz_loc_collection.push({ lat: $business_object[i].latitude, lng: $business_object[i].longitude});
+  }
 
-  // var myLatLng = {lat: 47.5464394, lng: -122.3170827};
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: {lat: 47.6062, lng: -122.3321},
     // center: should be the lat and long of leading biz
     zoom: 12
   });
 
-  var marker = new google.maps.Marker({
-          map: map,
-          position: myLatLng,
-        });
+  for (i = 0; i < biz_loc_collection.length; ++i) {
+  marker = new google.maps.Marker({
+      map: map,
+      draggable: true,
+      animation: google.maps.Animation.DROP,
+      position: biz_loc_collection[i]
+    });
+    marker.addListener('click', toggleBounce);
+  }
+
+  function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
 }
 
 
