@@ -14,7 +14,10 @@ class FlightsController < ApplicationController
     end
   end
 
+
   def show
+    @business = Business.all.first
+
     render :show
   end
 
