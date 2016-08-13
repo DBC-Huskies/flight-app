@@ -1,63 +1,55 @@
 class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
-
   include ActiveModel::Model
 
-  attr_accessor(
-    :location,
-    :beverage,
-    :distance
-    )
-  def self.beverage_options
-    [ 'Wine', 'Beer', 'Whiskey', 'Coffee']
-  end
-
-  def self.distance_options
-    distance_array( 0, 50)
-  end
+  attr_accessor :location, :beverage, :distance
 
   validates_presence_of :location, :beverage, :distance
 
-  # def get_biz_within_distance
-    # Business.near(self.location, self.distance)
-  # end
+  def self.beverage_options
+    ['Wine', 'Beer', 'Whiskey', 'Coffee']
+  end
 
-  # def get_themed_biz(biz_collection)
-  # Smth like this.
-    # case self.beverage
-    # case 'Wine'
-      # biz_collection.wine
-    # case 'Beer'
-      # biz_collection.beer
-    # case 'Whiskey'
-      # biz_collection.whiskey
-    # case 'Coffee'
-      # biz_collection.coffee
-    # end
-  # end
+  def self.distance_options
+    distance_array(2, 50)
+  end
 
   def generate_flights
-#returns a collection of flights based on search params
+    enum = get_theme_enum(@beverage)
+    surrounding_businesses = get_surrounding_business(@location, enum, @distance)
 
-# Steps:
-# get businesses within the given distance
-    # biz_within_distance = get_biz_within_distance(possible_flights)
-# get the list of businesses that have needed beverage category
-    # themed_biz_collection = search.get_themed_biz(biz_within_distance)
-# rank the businesses by the ratings
+    flights = []
+    surrounding_businesses.each do |business|
+      new_flight = business.curate_flight(enum)
+      flights << new_flight
+    end
 
-# select 5 leading businesses
-
-# create 5 flights with 5 businesses inside a flight around the leading business
-
-    []
+    flights
   end
 
   private
+
   def self.distance_array(min, max)
-    distance_array = [0, 2.5, 5, 7.5]
+    distance_array = [2.5, 5, 7.5]
     range = Range.new(min, max)
     range.each { |num| distance_array << num  if num >= 10 && num % 5 == 0 }
     distance_array
+  end
+
+  def get_surrounding_business(location, beverage, distance)
+    Business.where(theme: beverage).near(location, distance)
+  end
+
+  def get_theme_enum(beverage)
+    case beverage
+    when 'Wine', 'wine'
+      0
+    when 'Beer', 'beer'
+      1
+    when 'Whiskey', 'whiskey'
+      2
+    when 'Coffee', 'coffee'
+      3
+    end
   end
 
 end

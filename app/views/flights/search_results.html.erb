@@ -1,6 +1,15 @@
 <div class="row">
-  <h2>Pick the perfect escape</h2>
-  <% @flights.each do |flight| %>
-  <!-- Display the flight a a li item in ul -->
+<h2>Pick the perfect escape</h2>
+<ul>
+<% @flights.each do |flight| %>
+<li>
+  <%= flight.name %>
+  <ol>
+  <% flight.businesses.each do |business| %>
+    <li><%= business.name %></li>
   <% end %>
+  </ol>
+</li>
+<% end %>
+</ul>
 </div>
