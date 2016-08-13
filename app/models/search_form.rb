@@ -19,11 +19,10 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
     flights = []
     surrounding_businesses.each do |business|
-      new_flight = Flight.create(name: Faker::Hipster.word, theme: enum)
-      new_flight.businesses << business
-      new_flight.curate_flight
+      new_flight = business.curate_flight(enum)
       flights << new_flight
     end
+
     flights
   end
 
@@ -37,10 +36,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   def get_surrounding_business(location, beverage, distance)
-    p location
-    p beverage
-    p distance
-    p Business.where(theme: beverage).near(location, distance)
+    Business.where(theme: beverage).near(location, distance)
   end
 
   def get_theme_enum(beverage)

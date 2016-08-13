@@ -54,4 +54,17 @@ describe 'Business' do
       expect(valid_bus.longitude).to eq -122.3517838
     end
   end
+
+
+  describe '#curate_flight' do
+    let!(:biz1) { Business.create(name: 'Standard Brewing', location: '2504 S Jackson St, Seattle, WA 98144', theme: 1) }
+    let!(:biz2) { Business.create(name: 'Schooner Exact Brewing Company', location: '3901 1st Avenue South, Seattle, WA 98134', theme: 1) }
+    let!(:biz3) { Business.create(name: 'Holy Mountain Brewing Company', location: '1421 Elliott Ave W, Seattle, WA 98119', theme: 1) }
+
+    it "returns a flight of businesses" do
+      valid_flight.businesses << biz1
+      valid_flight.curate_flight
+      expect(valid_flight.businesses.last).to eq biz3
+    end
+  end
 end

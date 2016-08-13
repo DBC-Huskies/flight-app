@@ -3,7 +3,7 @@
 <ul>
 <% @flights.each do |flight| %>
 <li>
-  <%= link_to flight.name, flight_path(flight) %>
+  <%= flight.name %>
   <ol>
   <% flight.businesses.each do |business| %>
     <li><%= business.name %></li>
