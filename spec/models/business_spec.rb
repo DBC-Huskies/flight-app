@@ -1,17 +1,19 @@
 require 'rails_helper'
 
 describe 'Business' do
+  let(:valid_bus) { Business.create(name: 'The Barrel Thief', location: '3417 Evanston Ave N #102, Seattle, WA 98103', theme: 2) }
+
   describe 'validations' do
-    let(:valid_bus) { Business.new(name: "Whiskey Bar", location: "Ballard") }
-    let(:invalid_bus) { Business.new(name: "", location: "") }
+
+    let(:invalid_bus) { Business.create(name: "", location: "") }
 
     describe 'when valid' do
       it 'validates the presence of name' do
-        expect(valid_bus.name).to eq('Whiskey Bar')
+        expect(valid_bus.name).to eq('The Barrel Thief')
       end
 
       it 'validates the presence of location' do
-        expect(valid_bus.location).to eq('Ballard')
+        expect(valid_bus.location).to eq('3417 Evanston Ave N #102, Seattle, WA 98103')
       end
 
       it 'validates the default rating of 3' do
@@ -43,6 +45,13 @@ describe 'Business' do
       it 'validates whiskey is at position 3 in the theme enum' do
         expect(Business.themes[:coffee]).to eq 3
       end
+    end
+  end
+
+  describe 'geocoder' do
+    it 'generates GPS coordinates for a given address' do
+      expect(valid_bus.latitude).to eq 47.6505336
+      expect(valid_bus.longitude).to eq -122.3517838
     end
   end
 end
