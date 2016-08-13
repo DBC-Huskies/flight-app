@@ -17,44 +17,21 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
   validates_presence_of :location, :beverage, :distance
 
-  # def get_biz_within_distance
-    # Business.near(self.location, self.distance)
-  # end
-
-  # def get_themed_biz(biz_collection)
-  # Smth like this.
-    # case self.beverage
-    # case 'Wine'
-      # biz_collection.wine
-    # case 'Beer'
-      # biz_collection.beer
-    # case 'Whiskey'
-      # biz_collection.whiskey
-    # case 'Coffee'
-      # biz_collection.coffee
-    # end
-  # end
 
   def generate_flights
-    surrounding_businesses = get_surrounding_business(@location, @beverage, @distance)
+    enum = get_theme_enum(@beverage)
+    surrounding_businesses = get_surrounding_business(@location, enum, @distance)
+    flights = []
 
+    i = 1
     surrounding_businesses.each do |business|
-      p business.name
-      p business.distance_from(@location)
+      new_flight = business.flights.new(name: "Flight #{i}", theme: enum)
+      new_flight.curate_flight
+      flights << new_flight
+      i += 1
     end
 
-    # Steps:
-    # get businesses within the given distance
-        # biz_within_distance = get_biz_within_distance(possible_flights)
-    # get the list of businesses that have needed beverage category
-        # themed_biz_collection = search.get_themed_biz(biz_within_distance)
-    # rank the businesses by the ratings
-
-    # select 5 leading businesses
-
-    # create 5 flights with 5 businesses inside a flight around the leading business
-
-    []
+    flights
   end
 
   private
@@ -67,18 +44,20 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   def get_surrounding_business(location, beverage, distance)
+    Business.where(theme: beverage).near(location, distance)
+  end
+
+  def get_theme_enum(beverage)
     case beverage
     when 'Wine'
-      enum = 0
+      0
     when 'Beer'
-      enum = 1
+      1
     when 'Whiskey'
-      enum = 2
+      2
     when 'Coffee'
-      enum = 3
+      3
     end
-
-    Business.where(theme: enum).near(location, distance)
   end
 
 end
