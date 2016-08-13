@@ -15,8 +15,7 @@ class FlightsController < ApplicationController
   end
 
   def show
-    # if the user refreshes the search/results page
-    redirect_to '/search'
+    render :show
   end
 
   private
