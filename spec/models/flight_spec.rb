@@ -45,7 +45,7 @@ describe Flight do
     it "returns a flight of businesses" do
       valid_flight.businesses << biz1
       valid_flight.curate_flight
-      expect(valid_flight.businesses.last).to eq biz2
+      expect(valid_flight.businesses.last).to eq biz3
     end
   end
 end

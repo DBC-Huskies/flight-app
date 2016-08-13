@@ -43,13 +43,13 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
   def get_theme_enum(beverage)
     case beverage
-    when 'Wine'
+    when 'Wine', 'wine'
       0
-    when 'Beer'
+    when 'Beer', 'beer'
       1
-    when 'Whiskey'
+    when 'Whiskey', 'whiskey'
       2
-    when 'Coffee'
+    when 'Coffee', 'coffee'
       3
     end
   end
