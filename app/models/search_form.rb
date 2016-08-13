@@ -6,7 +6,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   validates_presence_of :location, :beverage, :distance
 
   def self.beverage_options
-    [ 'Wine', 'Beer', 'Whiskey', 'Coffee']
+    ['Wine', 'Beer', 'Whiskey', 'Coffee']
   end
 
   def self.distance_options
@@ -16,10 +16,10 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   def generate_flights
     enum = get_theme_enum(@beverage)
     surrounding_businesses = get_surrounding_business(@location, enum, @distance)
-    flights = []
 
+    flights = []
     surrounding_businesses.each do |business|
-      new_flight = Flight.create(name: Faker::Hipster.sentence, theme: enum)
+      new_flight = Flight.create!(name: Faker::Hipster.sentence, theme: enum)
       new_flight.businesses << business
       new_flight.curate_flight
       flights << new_flight
@@ -38,7 +38,10 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   def get_surrounding_business(location, beverage, distance)
-    Business.where(theme: beverage).near(location, distance)
+    p location
+    p beverage
+    p distance
+    p Business.where(theme: beverage).near(location, distance)
   end
 
   def get_theme_enum(beverage)
