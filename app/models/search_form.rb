@@ -12,7 +12,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   def self.distance_options
-    distance_array( 0, 50)
+    distance_array(2, 50)
   end
 
   validates_presence_of :location, :beverage, :distance
@@ -36,16 +36,12 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   # end
 
   def generate_flights
-    # returns a collection of flights based on search params
-    case @beverage
-    when 'Wine'
-      enum =
-    when 'Beer'
-    when 'Whiskey'
-    when 'Coffee'
-    end
+    surrounding_businesses = get_surrounding_business(@location, @beverage, @distance)
 
-    p Business.where(theme: 2).near(@location, @distance)
+    surrounding_businesses.each do |business|
+      p business.name
+      p business.distance_from(@location)
+    end
 
     # Steps:
     # get businesses within the given distance
@@ -62,11 +58,27 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   private
+
   def self.distance_array(min, max)
-    distance_array = [0, 2.5, 5, 7.5]
+    distance_array = [2.5, 5, 7.5]
     range = Range.new(min, max)
     range.each { |num| distance_array << num  if num >= 10 && num % 5 == 0 }
     distance_array
+  end
+
+  def get_surrounding_business(location, beverage, distance)
+    case beverage
+    when 'Wine'
+      enum = 0
+    when 'Beer'
+      enum = 1
+    when 'Whiskey'
+      enum = 2
+    when 'Coffee'
+      enum = 3
+    end
+
+    Business.where(theme: enum).near(location, distance)
   end
 
 end
