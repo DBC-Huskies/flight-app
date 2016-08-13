@@ -1,3 +1,6 @@
+<div class='gray-box container'>
+<%= content_tag(:h2, 'Curate Flights') %>
+<hr>
 <%= form_for @search, :url => search_results_flights_path do |f| %>
   <%= f.label :location %>
   <%= f.text_field :location %>
@@ -6,5 +9,6 @@
   <%= f.label :distance_in_miles %>
   <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
 
-  <%= f.submit :submit %>
+  <%= content_tag(:button, "Submit") %>
 <% end %>
+</div>
