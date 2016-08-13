@@ -5,4 +5,7 @@ class Business < ActiveRecord::Base
   belongs_to :flight
 
   validates :name, :location, :rating, presence: true
+
+  geocoded_by :location
+  after_validation :geocode
 end
