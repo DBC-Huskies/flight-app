@@ -9,7 +9,7 @@ class Flight < ActiveRecord::Base
     businesses_around_start = Business.where(theme: self.theme).near(self.businesses.first, 50)
     p "YOOOOOOOOOO"
     p self.businesses.first
-    p businesses_around_start
+    businesses_around_start.each { |business| p business.name }
   end
 
 end
