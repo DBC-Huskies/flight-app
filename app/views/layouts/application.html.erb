@@ -9,9 +9,13 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
 </head>
-<body>
-<main>
-<%= yield %>
-</main>
+<body class='container'>
+  <main>
+    <%= yield %>
+  </main>
+
+  <footer class="row">
+    <p>This is a footer</p>
+  </footer>
 </body>
 </html>

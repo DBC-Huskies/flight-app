@@ -1,14 +1,20 @@
-<div class='gray-box container'>
-<%= content_tag(:h2, 'Curate Flights') %>
-<hr>
-<%= form_for @search, :url => search_results_flights_path do |f| %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :beverage %>
-  <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
-  <%= f.label :distance_in_miles %>
-  <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+<header class="row">
+  <h1>SipTrip</h1>
+</header>
 
-  <%= content_tag(:button, "Submit") %>
-<% end %>
+<div class="row">
+  <div class='gray-box'>
+  <%= content_tag(:h2, 'Curate Flights') %>
+  <hr>
+  <%= form_for @search, :url => search_results_flights_path do |f| %>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    <%= f.label :beverage %>
+    <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
+    <%= f.label :distance_in_miles %>
+    <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+
+    <%= content_tag(:button, "Submit") %>
+  <% end %>
+  </div>
 </div>
