@@ -36,18 +36,27 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   # end
 
   def generate_flights
-#returns a collection of flights based on search params
+    # returns a collection of flights based on search params
+    case @beverage
+    when 'Wine'
+      enum =
+    when 'Beer'
+    when 'Whiskey'
+    when 'Coffee'
+    end
 
-# Steps:
-# get businesses within the given distance
-    # biz_within_distance = get_biz_within_distance(possible_flights)
-# get the list of businesses that have needed beverage category
-    # themed_biz_collection = search.get_themed_biz(biz_within_distance)
-# rank the businesses by the ratings
+    p Business.where(theme: 2).near(@location, @distance)
 
-# select 5 leading businesses
+    # Steps:
+    # get businesses within the given distance
+        # biz_within_distance = get_biz_within_distance(possible_flights)
+    # get the list of businesses that have needed beverage category
+        # themed_biz_collection = search.get_themed_biz(biz_within_distance)
+    # rank the businesses by the ratings
 
-# create 5 flights with 5 businesses inside a flight around the leading business
+    # select 5 leading businesses
+
+    # create 5 flights with 5 businesses inside a flight around the leading business
 
     []
   end

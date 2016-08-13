@@ -34,15 +34,15 @@ describe 'Business' do
         expect(Business.themes[:whiskey]).to eq 2
       end
 
-      it 'validates whiskey is at position 0 in the theme enum' do
+      it 'validates wine is at position 0 in the theme enum' do
         expect(Business.themes[:wine]).to eq 0
       end
 
-      it 'validates whiskey is at position 1 in the theme enum' do
+      it 'validates beer is at position 1 in the theme enum' do
         expect(Business.themes[:beer]).to eq 1
       end
 
-      it 'validates whiskey is at position 3 in the theme enum' do
+      it 'validates coffee is at position 3 in the theme enum' do
         expect(Business.themes[:coffee]).to eq 3
       end
     end
