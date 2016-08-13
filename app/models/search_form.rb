@@ -1,12 +1,10 @@
 class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
-
   include ActiveModel::Model
 
-  attr_accessor(
-    :location,
-    :beverage,
-    :distance
-    )
+  attr_accessor :location, :beverage, :distance
+
+  validates_presence_of :location, :beverage, :distance
+
   def self.beverage_options
     [ 'Wine', 'Beer', 'Whiskey', 'Coffee']
   end
@@ -15,9 +13,6 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
     distance_array(2, 50)
   end
 
-  validates_presence_of :location, :beverage, :distance
-
-
   def generate_flights
     enum = get_theme_enum(@beverage)
     surrounding_businesses = get_surrounding_business(@location, enum, @distance)
@@ -25,7 +20,8 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
     i = 1
     surrounding_businesses.each do |business|
-      new_flight = business.flights.new(name: "Flight #{i}", theme: enum)
+      new_flight = business.flights.create(name: "Flight #{i}", theme: enum)
+      new_flight.businesses << business
       new_flight.curate_flight
       flights << new_flight
       i += 1
