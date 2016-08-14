@@ -10,7 +10,7 @@
     </div>
   </div>
 
-  <div class="col gutters-d span-4-d" id="business-list">
+  <div class="col gutters-d span-4-d gray-box" id="business-list">
   <h1>This is a business list</h1>
   <% @flight.businesses.each do |business| %>
     <h2><%= business.name %></h2>
@@ -20,5 +20,5 @@
   </div>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDAWZInGIoJmxu61yRWsqh7XrmW7GQLX8&callback=initMap"
-    async defer></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_KEY'] %>&callback=initMap" defer async></script>
