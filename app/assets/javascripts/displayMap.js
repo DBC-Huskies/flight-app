@@ -19,7 +19,7 @@ function initMap() {
   for (i = 0; i < biz_loc_collection.length; ++i) {
   marker = new google.maps.Marker({
       map: map,
-      draggable: true,
+      draggable: false,
       animation: google.maps.Animation.DROP,
       position: biz_loc_collection[i]
     });
@@ -34,5 +34,3 @@ function initMap() {
     }
   }
 }
-
-

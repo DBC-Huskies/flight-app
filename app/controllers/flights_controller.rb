@@ -8,17 +8,18 @@ class FlightsController < ApplicationController
     @search = SearchForm.new(search_params)
     if @search.valid?
       @flights = @search.generate_flights
+      render :'flights/search_results'
     else
       #rerender the search template
-      render :search
+      render :'flights/search'
     end
   end
 
 
   def show
-    @businesses = Business.all
+    @flight = Flight.find(params[:id])
 
-    render :show
+    render :'flights/show'
   end
 
   private
