@@ -33,7 +33,6 @@ gem 'geocoder'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 group :test do
   gem 'simplecov', :require => false
   gem 'database_cleaner'
@@ -51,4 +50,5 @@ group :test, :development do
   gem 'spring'
   gem 'rspec-rails', '~> 3.5'
   gem 'faker'
+  gem 'dotenv-rails'
 end
