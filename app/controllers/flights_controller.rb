@@ -1,4 +1,7 @@
 class FlightsController < ApplicationController
+  def index
+    redirect_to search_results_flights_path
+  end
 
   def search
     @search = SearchForm.new
@@ -17,9 +20,19 @@ class FlightsController < ApplicationController
 
 
   def show
-    @flight = Flight.find(params[:id])
-
-    render :'flights/show'
+    if params[:id] == 'search_results'
+      @search = SearchForm.new
+      if @search.valid?
+        @flights = @search.generate_flights
+        render :'flights/search_results'
+      else
+        #rerender the search template
+        render :'flights/search'
+      end
+    else
+      @flight = Flight.find(params[:id])
+      render :'flights/show'
+    end
   end
 
   private
