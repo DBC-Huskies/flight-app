@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   def index
-    redirect_to search_results_flights_path
+    redirect_to search_flights_path
   end
 
   def search
