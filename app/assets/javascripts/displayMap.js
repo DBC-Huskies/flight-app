@@ -11,7 +11,7 @@ function initMap() {
   }
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: {lat: 47.6062, lng: -122.3321},
+    center: biz_loc_collection[0],
     // center: should be the lat and long of leading biz
     zoom: 12
   });
