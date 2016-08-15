@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Business.destroy_all
-
 biz_sample_data = [
   {name: 'Charles Smith Wine Jet City', location: '1136 S Albro Pl, Seattle, WA 98108', rating: 4, theme: 0},
   {name: 'Elson Cellars', location: '2960 4th Ave S, Seattle, WA 98134', rating: 5, theme: 0},
@@ -29,9 +27,13 @@ biz_sample_data = [
   {name: 'Victrola Coffee Roasters', location: '310 E Pike St, Seattle, WA, 98122', rating: 5, theme: 3},
   {name: 'Lighthouse Roasters', location: '400 N 43rd St, Seattle, WA, 98103', rating: 2, theme: 3},
   {name: 'Westland Distillery', location: '2931 1st Ave S, Seattle, WA, 98134', rating: 2, theme: 2},
-  {name: 'OOLA Distillery', location: '1314 E Union St, Seattle, WA, 98122', rating: 5, theme: 2}
+  {name: 'OOLA Distillery', location: '1314 E Union St, Seattle, WA, 98122', rating: 5, theme: 2},
+  {name: '21 Acres', location: '13701 NE 171st Street, Woodinville, WA 98072', rating: 5, theme: 0},
+  {name: 'Adams Bench Winery', location: '14360 160th Pl NE, Woodinville, WA 98072', rating: 3, theme: 0},
+  {name: 'Alexandria Nicole Cellars', location: '14810 NE 145th St, Woodinville, WA 98072', rating: 4, theme: 0},
+  {name: 'áMaurice Cellars', location: '14463 Woodinville-Redmond Rd NE, Woodinville, WA 98072', rating: 2, theme: 0}
 ]
 
 biz_sample_data.each do |business_data|
-  Business.create!(business_data)
+  Business.find_or_create_by(business_data)
 end
