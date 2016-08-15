@@ -9,10 +9,12 @@ class FlightsController < ApplicationController
 
   def search_results
     @search = SearchForm.new(search_params)
+
     if @search.valid?
       @flights = @search.generate_flights
       render :'flights/search_results'
     else
+      @errors = @search.errors
       #rerender the search template
       render :'flights/search'
     end

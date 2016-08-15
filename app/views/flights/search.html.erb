@@ -1,11 +1,14 @@
-<header class="row">
-  <h1>SipTrip</h1>
-</header>
-
-<div class="row">
+<div class="row col gutters-d span-12-d">
   <div class='gray-box'>
   <%= content_tag(:h2, 'Curate Flights') %>
   <hr>
+  
+  <% if !@errors.blank? %>
+    <ul><% @errors.each do |key, error_message| %>
+      <li><%= error_message %></li>
+    <% end %></ul>
+  <% end %>
+
   <%= form_for @search, :url => search_results_flights_path do |f| %>
     <%= f.label :location %>
     <%= f.text_field :location %>

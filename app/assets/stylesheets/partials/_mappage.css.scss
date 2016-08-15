@@ -1,8 +1,7 @@
-#map-container {
+#map-container, #business-list {
    border-radius: 10px 10px;
    border-color: rgba(200, 200, 200, 0.8);
    border-style: solid;
-  //  box-shadow: 2px 2px 10px #B1B1B1;
    border-width: 10px;
  }
 
@@ -10,3 +9,12 @@
   height: 400px;
   width: 100%;
  }
+
+#business-list {
+  padding: 0;
+}
+
+#business-list p {
+  text-align: left;
+  padding-left: 5%;
+}
