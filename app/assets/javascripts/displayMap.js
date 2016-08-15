@@ -16,21 +16,30 @@ function initMap() {
     zoom: 12
   });
 
-  for (i = 0; i < biz_loc_collection.length; ++i) {
-  marker = new google.maps.Marker({
+  biz_loc_collection.forEach(addMarker);
+
+  function addMarker(business){
+    var marker;
+    marker = new google.maps.Marker({
       map: map,
       draggable: false,
       animation: google.maps.Animation.DROP,
-      position: biz_loc_collection[i]
+      position: business
     });
+
     marker.addListener('click', toggleBounce);
   }
 
   function toggleBounce() {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
-  }
+    var marker;
+    marker = this;
+
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+        setTimeout(function(){ marker.setAnimation(null); }, 750);
+      }
+   }
+
 }
