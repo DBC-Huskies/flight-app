@@ -20,7 +20,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
     # p "This is the leading business location"
     # p start_location = leading_business.location
     p "These are possible businesses near the leading business"
-    p surrounding_businesses = Business.where(theme: beverage).near(leading_business, 10, :order => {rating: :desc})
+    p surrounding_businesses = Business.where(theme: beverage).near(leading_business, 1, :order => {rating: :desc})
 
     flights = []
     surrounding_businesses.each do |business|
