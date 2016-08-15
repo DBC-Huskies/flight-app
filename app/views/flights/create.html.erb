@@ -1,0 +1,15 @@
+<div class="row">
+  <h2>Pick the perfect escape</h2>
+  <ul>
+  <% @flights.each do |flight| %>
+  <li class="col gutters-d span-12-d">
+    <%= link_to flight.name, search_flight_path(flight.id) %>
+    <ol>
+    <% flight.businesses.each do |business| %>
+      <li><%= business.name %></li>
+    <% end %>
+    </ol>
+  </li>
+  <% end %>
+  </ul>
+</div>

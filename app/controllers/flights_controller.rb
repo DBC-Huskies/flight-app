@@ -15,7 +15,7 @@ class FlightsController < ApplicationController
       # render :'flights/search_results'
     else
       @errors = @search.errors
-      # render :'flights/search'
+      render :'flights/search'
     end
   end
 
