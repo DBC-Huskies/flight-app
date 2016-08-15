@@ -6,6 +6,4 @@ Rails.application.routes.draw do
     post 'search_results', on: :collection
   end
 
-  get '/search', to: 'flights#search'
-
 end
