@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   def index
-    redirect_to search_results_flights_path
+    redirect_to search_flights_path
   end
 
   def search
@@ -12,14 +12,12 @@ class FlightsController < ApplicationController
 
     if @search.valid?
       @flights = @search.generate_flights
-      render :'flights/search_results'
+      # render :'flights/search_results'
     else
       @errors = @search.errors
-      #rerender the search template
-      render :'flights/search'
+      # render :'flights/search'
     end
   end
-
 
   def show
     if params[:id] == 'search_results'
@@ -38,6 +36,7 @@ class FlightsController < ApplicationController
   end
 
   private
+
   def search_params
     params.require(:search_form).permit(:location, :beverage, :distance)
   end
