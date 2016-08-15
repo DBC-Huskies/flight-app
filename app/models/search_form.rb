@@ -44,7 +44,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   def get_leading_business(location, beverage, distance)
     p "BUSINESSES"
     p businesses = Business.where(theme: beverage).order(rating: :desc).near(location, distance)
-    p leading_business = businesses.first
+    leading_business = businesses.first
     return leading_business
   end
 
