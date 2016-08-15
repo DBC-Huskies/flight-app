@@ -9,7 +9,7 @@ class Business < ActiveRecord::Base
   after_validation :geocode
 
   def curate_flight(theme)
-    new_flight = self.flights.create(name: Faker::Hipster.sentence, theme: theme)
+    new_flight = self.flights.create(name: "Flight no. #{Flight.last.id + 1}", theme: theme)
     businesses_around_self = Business.where(theme: theme).order(rating: :desc).near(self, 5).to_a
     businesses_around_self.delete(self)
     i = 0
