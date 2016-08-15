@@ -16,10 +16,10 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
   def generate_flights
     enum = get_theme_enum(@beverage)
-    surrounding_businesses = get_surrounding_business(@location, enum, @distance)
+    leading_businesses = get_leading_businesses(@location, enum, @distance)
 
     flights = []
-    surrounding_businesses.each do |business|
+    leading_businesses.each do |business|
       new_flight = business.curate_flight(enum)
       flights << new_flight
     end
@@ -36,9 +36,13 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
     distance_array
   end
 
-  def get_surrounding_business(location, beverage, distance)
-    Business.where(theme: beverage).near(location, distance)
+  def get_leading_businesses(location, beverage, distance)
+    businesses = Business.limit(3).where(theme: beverage).order(rating: :desc).near(location, distance)
   end
+
+  # def get_possible_businesses(location, beverage, distance)
+  #   Business.where(theme: beverage).near(location, distance)
+  # end
 
   def get_theme_enum(beverage)
     case beverage
