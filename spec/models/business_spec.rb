@@ -16,9 +16,9 @@ describe 'Business' do
         expect(valid_bus.location).to eq('3417 Evanston Ave N #102, Seattle, WA 98103')
       end
 
-      it 'validates the default rating of 3' do
-        expect(valid_bus.rating).to eq 3
-      end
+      # it 'validates the default rating of 3' do
+      #   expect(valid_bus.rating).to eq 3
+      # end
     end
 
     describe 'when not valid' do
