@@ -15,10 +15,6 @@ describe 'Business' do
       it 'validates the presence of location' do
         expect(valid_bus.location).to eq('3417 Evanston Ave N #102, Seattle, WA 98103')
       end
-
-      # it 'validates the default rating of 3' do
-      #   expect(valid_bus.rating).to eq 3
-      # end
     end
 
     describe 'when not valid' do
@@ -62,6 +58,7 @@ describe 'Business' do
     let!(:biz3) { Business.create(name: 'Holy Mountain Brewing Company', location: '1421 Elliott Ave W, Seattle, WA 98119', theme: 1) }
 
     it "returns a flight of businesses" do
+      Flight.create(name: "Flight number one", theme: 1)
       new_flight = biz1.curate_flight(1)
       expect(new_flight.businesses.last).to eq biz3
     end
