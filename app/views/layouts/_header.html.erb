@@ -1,3 +1,12 @@
 <header class="row <%= @skip_header ? 'hidden' : '' %>">
   <h1>SipTrip</h1>
+  <div>
+  <% if session[:user_id] %>
+    <%= link_to "profile" %>
+    <%= link_to "logout", session_path, method: :delete %>
+  <% else %>
+    <%= link_to "register", new_user_path %>
+    <%= link_to "login", new_session_path %>
+  <% end %>
+  </div>
 </header>
