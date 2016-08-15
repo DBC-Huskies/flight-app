@@ -3,7 +3,8 @@
   <ul class="flight-name">
   <h2><% @flights.each do |flight| %></h2>
   <li class="left-list-item">
-    <%= link_to flight.name, flight %>
+  <%= flight.id %>
+    <%= link_to flight.name, "/flights/#{flight.id}" %>
     <ol>
     <% flight.businesses.each do |business| %>
       <li><%= business.name %></li>
