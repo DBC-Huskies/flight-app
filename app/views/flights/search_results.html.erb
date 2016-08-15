@@ -1,8 +1,8 @@
-<div class="row">
+<div id="flights-list" class="row col gutters-d span-12-d gray-box">
   <h2>Pick the perfect escape</h2>
-  <ul>
-  <% @flights.each do |flight| %>
-  <li class="col gutters-d span-12-d">
+  <ul class="flight-name">
+  <h2><% @flights.each do |flight| %></h2>
+  <li class="left-list-item">
     <%= link_to flight.name, flight %>
     <ol>
     <% flight.businesses.each do |business| %>
