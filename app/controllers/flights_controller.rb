@@ -5,6 +5,9 @@ class FlightsController < ApplicationController
 
   def search
     @search = SearchForm.new
+    if request.xhr?
+      render :'flights/search', layout: false
+    end
   end
 
   def search_results
