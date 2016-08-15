@@ -40,10 +40,6 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
     businesses = Business.limit(3).where(theme: beverage).order(rating: :desc).near(location, distance)
   end
 
-  # def get_possible_businesses(location, beverage, distance)
-  #   Business.where(theme: beverage).near(location, distance)
-  # end
-
   def get_theme_enum(beverage)
     case beverage
     when 'Wine', 'wine'
