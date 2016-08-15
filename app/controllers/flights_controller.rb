@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   def index
-    redirect_to search_results_flights_path
+    redirect_to search_flights_path
   end
 
   def search
@@ -20,7 +20,6 @@ class FlightsController < ApplicationController
     end
   end
 
-
   def show
     if params[:id] == 'search_results'
       @search = SearchForm.new
@@ -38,6 +37,7 @@ class FlightsController < ApplicationController
   end
 
   private
+
   def search_params
     params.require(:search_form).permit(:location, :beverage, :distance)
   end
