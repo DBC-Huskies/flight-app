@@ -47,6 +47,11 @@ Rails.application.configure do
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
   config.log_level = :debug
+  if ENV['FULL_DEBUG']
+    config.consider_all_requests_local = true
+    config.logger = Logger.new(STDOUT)
+    config.logger.level = Logger::DEBUG
+  end
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
