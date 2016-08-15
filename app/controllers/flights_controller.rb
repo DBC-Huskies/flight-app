@@ -13,14 +13,24 @@ class FlightsController < ApplicationController
   def search_results
     @search = SearchForm.new(search_params)
 
-    if @search.valid?
-      @flights = @search.generate_flights
-      render :'flights/search_results'
-    else
-      @errors = @search.errors
-      #rerender the search template
-      render :'flights/search'
-    end
+      if @search.valid?
+        @flights = @search.generate_flights
+        if request.xhr?
+          render :'flights/search_results', layout: false
+        else
+          render :'flights/search_results'
+        end
+      else
+        @errors = @search.errors
+        if request.xhr?
+          content_type :json
+          puts "AAAAAAAAAAAAAAAAAAAAAAAAAA"
+          p @errors.to_json
+        else
+          render :'flights/search'
+        end
+      end
+
   end
 
   def show
