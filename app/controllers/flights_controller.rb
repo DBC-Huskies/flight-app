@@ -24,8 +24,9 @@ class FlightsController < ApplicationController
         @errors = @search.errors
         if request.xhr?
           content_type :json
-          puts "AAAAAAAAAAAAAAAAAAAAAAAAAA"
-          p @errors.to_json
+          # Add logic to make sure we pass
+          # the right data to display the error messages on the search page
+          @errors.to_json
         else
           render :'flights/search'
         end
