@@ -3,7 +3,7 @@ class Business < ActiveRecord::Base
 
   has_and_belongs_to_many :flights
 
-  validates :name, :location, :rating, presence: true
+  validates :name, :location, presence: true
 
   geocoded_by :location
   after_validation :geocode
@@ -18,4 +18,30 @@ class Business < ActiveRecord::Base
     end
     new_flight
   end
+
+
+  def leading_business
+    # return a list of businesses matching search params
+    # order businesses based on rating
+    # select highest rated business to build flight around
+      # set this business location to center of map
+      # include leading business in flight
+
+
+# selects nearby businesses within 2 miles
+leading_business.nearbys(2)
+
+@businesses = Business.near(leading_business, 2, :order => :rating)
+
+
+
+# gets businesses from certain theme and orders based on rank
+Business.where(theme: 0).order(rating: :desc)
+
+leading_business = Business.where(theme: 0).order(rating: :desc).first
+  end
+
+
+
+
 end
