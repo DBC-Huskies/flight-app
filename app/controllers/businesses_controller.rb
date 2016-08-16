@@ -11,7 +11,7 @@ class BusinessesController < ApplicationController
 
     if @business.save
       flash[:notice] = "Thank you for adding your favorite local business to our growing list available for others to enjoy."
-      redirect_to '/flights/search'
+      redirect_to '/users/show'
     else
       render 'new'
     end

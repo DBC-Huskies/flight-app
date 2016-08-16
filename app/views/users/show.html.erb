@@ -1,1 +1,17 @@
-<h2>Welcome, <%= @user.username %></h2>
+<div class="section container" id="business-section">
+  <div class='centered'>
+    <div class="" id='business-form'>
+      <div class='box'>
+
+        <% if flash[:notice] %>
+          <div class='box'>
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+
+        <h2>Welcome, <%= @user.username %></h2>
+          <%= link_to "add business", new_business_path %>
+      </div>
+    </div>
+  </div>
+</div>

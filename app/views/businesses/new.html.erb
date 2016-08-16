@@ -1,42 +1,48 @@
-<div id="new_business" class="row col gutters-d span-12-d gray-box">
-  <h2>Add a business to our growing list</h2>
-  <p>Where do you like to go for a glass of wine, a cold beer, your favorite whiskey or relax with coffee? Provide the details for your favorite local establishments and they will be available for others as they create their own SipTrips.</p>
+<div class="section container" id="business-section">
+  <div class='centered'>
+    <div class="" id='business-form'>
+      <div class='box'>
+        <h2>Add a business to our growing list</h2>
+        <p>Where do you like to go for a glass of wine, a cold beer, your favorite whiskey or relax with coffee? Provide the details for your favorite local establishments and they will be available for others as they create their own SipTrips.</p>
 
-  <%= form_for @business do |f| %>
-    <% if @business.errors.any? %>
-      <h3>
-        Please correct all errors listed below and try submitting again.
-      </h3>
-    <% end %>
+        <%= form_for @business do |f| %>
+          <% if @business.errors.any? %>
+            <h3>
+              Please correct all errors listed below and try submitting again.
+            </h3>
+          <% end %>
 
-    <div class='form-field'>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <p class='errors'><%= show_errors(@business, :name) %></p>
+          <div class='form-field'>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <p class='errors'><%= show_errors(@business, :name) %></p>
+          </div>
+
+          <div class='form-field'>
+            <%= f.label :street %>
+            <%= f.text_field :street %>
+            <p class='errors'><%= show_errors(@business, :street) %></p>
+          </div>
+
+          <div class='form-field'>
+            <%= f.label :city %>
+            <%= f.text_field :city %>
+            <p class='errors'><%= show_errors(@business, :city) %></p>
+          </div>
+
+          <div class='form-field'>
+            <%= f.label :state %>
+            <%= f.select :state, options_for_select(state_options) %>
+          </div>
+
+          <div class='form-field'>
+            <%= f.label :beverage %>
+            <%= f.select :beverage, options_for_select(Business.beverage_options) %>
+          </div>
+
+          <%= content_tag(:button, "Submit") %>
+        <% end %>
+        </div>
     </div>
-
-    <div class='form-field'>
-      <%= f.label :street %>
-      <%= f.text_field :street %>
-      <p class='errors'><%= show_errors(@business, :street) %></p>
-    </div>
-
-    <div class='form-field'>
-      <%= f.label :city %>
-      <%= f.text_field :city %>
-      <p class='errors'><%= show_errors(@business, :city) %></p>
-    </div>
-
-    <div class='form-field'>
-      <%= f.label :state %>
-      <%= f.select :state, options_for_select(state_options) %>
-    </div>
-
-    <div class='form-field'>
-      <%= f.label :beverage %>
-      <%= f.select :beverage, options_for_select(Business.beverage_options) %>
-    </div>
-
-    <%= content_tag(:button, "Submit") %>
-  <% end %>
+  </div>
 </div>
