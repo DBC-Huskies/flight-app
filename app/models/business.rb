@@ -11,13 +11,13 @@ class Business < ActiveRecord::Base
   geocoded_by :location
   after_validation :geocode
 
-  # def location
-  #   self.location = [street, city, state].join(', ')
-  # end
-  #
-  # def location=(street, city, state)
-  #   self.location = [street, city, state].join(', ')
-  # end
+  def location
+    self.location = [street, city, state].join(', ')
+  end
+
+  def location=(street, city, state)
+    self.location = [street, city, state].join(', ')
+  end
 
   def self.beverage_options
     ['Wine', 'Beer', 'Whiskey', 'Coffee']
