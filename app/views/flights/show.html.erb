@@ -17,7 +17,7 @@
         <div id="business-listings" class="box">
           <h1><%= @flight.theme.capitalize %> flight</h1>
           <% @flight.businesses.each do |business| %>
-            <h2><%= business.name %></h2>
+            <h2><%= link_to business.name, business_path %></h2>
             <p><%= business.location %></p>
             <p>Rating: <%= business.rating %></p>
           <% end %>
@@ -26,6 +26,6 @@
 
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_KEY'] %>&callback=initMap" defer async></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_KEY'] %>&callback=initMap" defer async></script>
   </div>
 </div>
