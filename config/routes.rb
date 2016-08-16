@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     post 'search_results', on: :collection
   end
 
+  get '/test' => "pages#test"
+
 end

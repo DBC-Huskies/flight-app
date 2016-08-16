@@ -1,23 +1,32 @@
-<div class="row col gutters-d span-12-d" id='search'>
-  <div class='gray-box'>
-  <%= content_tag(:h2, 'Curate Flights') %>
-  <hr>
+<div class='section container' id='search-section'>
+  <div class='centered'>
 
-  <% if !@errors.blank? %>
-    <ul><% @errors.each do |key, error_message| %>
-      <li><%= error_message %></li>
-    <% end %></ul>
-  <% end %>
+    <div class="" id='search'>
+      <div class='box'>
+      <%= content_tag(:h2, 'Curate Flights') %>
+      <hr>
 
-  <%= form_for @search, :url => search_results_flights_path do |f| %>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <%= f.label :beverage %>
-    <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
-    <%= f.label :distance_in_miles %>
-    <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+      <% if !@errors.blank? %>
+        <ul><% @errors.each do |key, error_message| %>
+          <li><%= error_message %></li>
+        <% end %></ul>
+      <% end %>
 
-    <%= content_tag(:button, "Submit") %>
-  <% end %>
+      <%= form_for @search, :url => search_results_flights_path do |f| %>
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+        <%= f.label :beverage %>
+        <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
+        <%= f.label :distance_in_miles %>
+        <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+
+        <%= content_tag(:button, "Submit") %>
+      <% end %>
+      </div>
+    </div>
+
   </div>
 </div>
+
+<div id="search-results-container"></div>
+<div id="business-results-container"></div>
