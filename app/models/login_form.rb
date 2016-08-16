@@ -8,9 +8,9 @@ class LoginForm
 
   def authentic_user
     user = User.find_by(:username => @username)
-    if user != nil && user.authenticate(@password)
-      return true
-    else
+    if user == nil
+      @errors.add("username and password", "were entered incorrectly")
+    elsif user.authenticate(@password) == false
       @errors.add("username and password", "were entered incorrectly")
     end
   end
