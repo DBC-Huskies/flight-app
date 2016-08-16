@@ -1,4 +1,11 @@
 <div class="row gray-box">
+<% if @user.errors.any? %>
+  <ul>
+  <% @user.errors.each do |key, message| %>
+  <li><%= "#{key} " + "#{message}" %></li>
+  <% end %>
+  </ul>
+<% end %>
 <h2>New user</h2>
 <%= form_for @user do |f| %>
 
