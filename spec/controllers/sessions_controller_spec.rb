@@ -32,14 +32,34 @@ describe SessionsController do
   end
 
   describe '#create' do
-    let(:valid_user) { User.create(username: "Jimmy Dean", password: '5au5ag3l1nk')}
+    let!(:valid_user) { User.create(username: "Jimmy Dean", password: '5au5ag3l1nk')}
 
     context 'with valid login credentials' do
-      post :create, login_form: {:username => "Jimmy Dean", :password => "5au5ag3l1nk"}
-      expect(response).to have_http_status(:ok)
+      before(:each) do
+        post :create, login_form: {:username => "Jimmy Dean", :password => "5au5ag3l1nk"}
+      end
+
+      it 'accepts the route' do
+        expect(response).to have_http_status(:redirect)
+      end
+
+      it 'redirects to the user profile' do
+        expect(response).to redirect_to(User.last)
+      end
+
     end
 
     context 'with invalid login credentials' do
+
+      it 'renders the form again with empty fields' do
+        post :create, login_form: {username: "", password: ""}
+        expect(response).to render_template(:new)
+      end
+
+      it 'renders the form again with an incorrect password' do
+        post :create, login_form: {username: "Jimmy Dean", password: "sausagelink"}
+        expect(response).to render_template(:new)
+      end
 
     end
 
