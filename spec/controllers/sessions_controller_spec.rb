@@ -2,18 +2,22 @@ require 'rails_helper'
 
 describe SessionsController do
 
-  it 'renders the login page' do
-    get :new
-    expect(response).to have_http_status(:ok)
-    expect(response).to render_template(:new)
+  describe 'GET #index' do
+
+    it 'renders the login page' do
+      get :new
+      expect(response).to have_http_status(:ok)
+      expect(response).to render_template(:new)
+    end
+
+    it 'assigns an empty login form' do
+      get :new
+      expect(assigns(:login)).to be_a(LoginForm)
+    end
+
   end
 
-  it 'assigns an empty login form' do
-    get :new
-    expect(assigns(:login)).to be_a(LoginForm)
-  end
-
-  describe '#destroy' do
+  describe 'DELETE #destroy' do
 
     before(:each) do
       session[:user_id] = 54
@@ -31,7 +35,7 @@ describe SessionsController do
 
   end
 
-  describe '#create' do
+  describe 'POST #create' do
     let!(:valid_user) { User.create(username: "Jimmy Dean", password: '5au5ag3l1nk')}
 
     context 'with valid login credentials' do
