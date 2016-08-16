@@ -1,0 +1,23 @@
+<div class="row box">
+<% if @user.errors.any? %>
+  <ul>
+  <% @user.errors.each do |key, message| %>
+  <li><%= "#{key} " + "#{message}" %></li>
+  <% end %>
+  </ul>
+<% end %>
+<h2>New user</h2>
+<%= form_for @user do |f| %>
+
+<%= f.label "Username:" %>
+<%= f.text_field :username %>
+
+<%= f.label "Password:" %>
+<%= f.password_field :password %>
+
+<%= f.label "Confirm Password:" %>
+<%= f.password_field :password_confirmation %>
+
+<%= content_tag(:button, "Register") %>
+<% end %>
+</div>
