@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20160816002119) do
 
   # These are extensions that must be enabled in order to support this database
@@ -37,6 +38,13 @@ ActiveRecord::Schema.define(version: 20160816002119) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "theme"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
