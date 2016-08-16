@@ -5,7 +5,8 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-
+    p [business_params[:street], business_params[:city], business_params[:state]].join(', ')
+    @business.location=([business_params[:street], business_params[:city], business_params[:state]])
     if @business.save
       redirect_to 'flights/create'
     else
@@ -15,7 +16,7 @@ class BusinessesController < ApplicationController
 
   private
   def business_params
-    params.require(:business).permit(:name, :location, :beverage)
+    params.require(:business).permit(:name, :street, :city, :state, :beverage)
   end
 
 end
