@@ -63,4 +63,16 @@ describe 'Business' do
       expect(new_flight.businesses.last).to eq biz3
     end
   end
+
+  describe 'ratings' do
+
+    it '' do
+
+    end
+
+    it '' do
+
+    end
+
+  end
 end
