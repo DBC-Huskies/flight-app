@@ -65,12 +65,17 @@ describe 'Business' do
   end
 
   describe 'ratings' do
+    let!(:sbrewing) { Business.create!({ name: 'Standard Brewing', location: '2504 S Jackson St Seattle, WA', street: '2504 S Jackson St', city: 'Seattle, WA', theme: 1, rating: 5} ) }
+    let(:doggy) { User.create!({ username: 'puppy', password: 'woofwoofwoof'})}
+    let(:cat) { User.create!({ username: 'kitty', password: 'meow'})}
 
-    it '' do
-
+    it 'can has multiple ratings by different users' do
+      sbrewing.ratings.create({ author: doggy, value: 5})
+      sbrewing.ratings.create({ author: cat, value: 1})
+      expect(sbrewing.ratings.count).to eq 2
     end
 
-    it '' do
+    it 'updates the rating to be an average when user create a new rating for the business' do
 
     end
 
