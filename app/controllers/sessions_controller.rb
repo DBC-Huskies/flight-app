@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
+  include ApplicationHelper
 
   def destroy
-    session[:user_id] = nil
+    end_user_session
     redirect_to new_session_path
   end
 
@@ -10,8 +11,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @login = LoginForm.new(login_params)
+    @login = LoginForm.new(login_form_params)
     if @login.valid?
+      set_user_session(@login.user_id)
+      redirect_to user_path(@login.user_id)
     else
       render :'sessions/new'
     end
@@ -19,8 +22,8 @@ class SessionsController < ApplicationController
 
   private
 
-  def login_params
-    params.require(:login).permit(:usenrame, :password)
+  def login_form_params
+    params.require(:login_form).permit(:username, :password)
   end
 
 end
