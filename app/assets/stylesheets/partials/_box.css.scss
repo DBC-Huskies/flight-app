@@ -8,6 +8,12 @@
   background-color: rgba(200, 200, 200, 0.6);
   border-radius: 15px;
 
+
+}
+
+#homepage-box {
+  text-align: center;
+
   hr {
     height: 15px;
     border-style: solid;
@@ -22,4 +28,11 @@
     margin-top:0px;
     margin-bottom: 30px;
   }
+}
+
+.box {
+  background-color: rgba(200, 200, 200, 0.6);
+  border-radius: 15px;
+  padding:15px;
+  margin: 15px;
 }

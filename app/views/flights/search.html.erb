@@ -3,25 +3,26 @@
 
     <div class="" id='search'>
       <div class='box'>
-      <%= content_tag(:h2, 'Curate Flights') %>
-      <hr>
+        <%= content_tag(:h2, 'Curate Flights') %>
+        <hr>
 
-      <% if !@errors.blank? %>
-        <ul><% @errors.each do |key, error_message| %>
-          <li><%= error_message %></li>
-        <% end %></ul>
-      <% end %>
+        <div id='error-message'>
+          <% if !@errors.blank? %>
+            <ul><% @errors.each do |key, error_message| %>
+              <li><%= error_message %></li>
+            <% end %></ul>
+          <% end %>
+        </div>
 
-      <%= form_for @search, :url => search_results_flights_path do |f| %>
-        <%= f.label :location %>
-        <%= f.text_field :location %>
-        <%= f.label :beverage %>
-        <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
-        <%= f.label :distance_in_miles %>
-        <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
-
-        <%= content_tag(:button, "Submit") %>
-      <% end %>
+        <%= form_for @search, :url => search_results_flights_path do |f| %>
+          <%= f.label :location %>
+          <%= f.text_field :location %>
+          <%= f.label :beverage %>
+          <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
+          <%= f.label :distance_in_miles %>
+          <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+          <%= content_tag(:button, "Submit") %>
+        <% end %>
       </div>
     </div>
 
