@@ -1,0 +1,101 @@
+<div class='section container' id='search-section'>
+  <div class='centered'>
+
+    <div class="" id='search'>
+      <div class='box'>
+      <%= content_tag(:h2, 'Curate Flights') %>
+      <hr>
+
+      <% if !@errors.blank? %>
+        <ul><% @errors.each do |key, error_message| %>
+          <li><%= error_message %></li>
+        <% end %></ul>
+      <% end %>
+
+      <%= form_for @search, :url => search_results_flights_path do |f| %>
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+        <%= f.label :beverage %>
+        <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
+        <%= f.label :distance_in_miles %>
+        <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+
+        <%= content_tag(:button, "Submit") %>
+      <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="search-results-container">
+  <div class='section container' id='search-results-section'>
+    <div class='centered'>
+
+
+  <div class="box">
+    <% if @flights.length == 0 %>
+      <h2>We currently have no flights available in your region</h2>
+      <p>We are currently in the process of expanding our list of businesses to include those in areas outside of Seattle. Stay tuned and check back frequently to see if businesses and flights are available in your region.</p>
+    <% else %>
+      <h2>Pick the perfect escape</h2>
+      <ul class="flight-name">
+      <h2><% @flights.each do |flight| %></h2>
+      <li class="left-list-item">
+        <%= link_to flight.name, flight %>
+        <ol>
+        <% flight.businesses.each do |business| %>
+          <li><%= business.name %></li>
+        <% end %>
+        </ol>
+      </li>
+      <% end %>
+      </ul>
+    <% end %>
+
+  </div>
+  </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class='section container' id='map-display-section'>
+  <div class='centered large'>
+<%= content_tag "div", id: "businesses", data: {url: @flight.businesses} do %>
+<% end %>
+
+
+
+<div class="row" id='map-list-block'>
+  <div class="col span-12-t span-8-d">
+  <div class='box'>
+    <div id="map-canvas">
+
+    </div>
+  </div>
+</div>
+
+  <div class='col span-12-t span-4-d'>
+    <div id="business-listings" class="box">
+    <h1><%= @flight.theme.capitalize %> flight</h1>
+    <% @flight.businesses.each do |business| %>
+      <h2><%= business.name %></h2>
+      <p><%= business.location %></p>
+      <p>Rating: <%= business.rating %></p>
+    <% end %>
+    </div>
+
+</div>
+
+
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_KEY'] %>&callback=initMap" defer async></script>
+</div>
+</div>

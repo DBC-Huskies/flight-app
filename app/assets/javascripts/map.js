@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  var heights = $("#business-list").map(function() {
+  var heights = $("#business-listings").map(function() {
     return $(this).height();
   }).get(),
 
@@ -9,4 +9,4 @@ $( document ).ready(function() {
 
 });
 
-  
+

@@ -22,9 +22,33 @@ footer {
   left: 0;
   height: 60px;
   width: 100%;
+  background-color: #D2A430;
   position: fixed;
 }
 
 .hidden {
   display: none;
 }
+
+.clearfix:after {
+  content:" ";
+  display:block;
+  clear:both;
+}
+
+.section {
+  min-height: 1400px;
+}
+
+.centered {
+  padding-top: 6em;
+  margin: 0 auto;
+  width: 35em;
+}
+
+@media (min-width: 75em) {
+    .centered.large {
+        width: 65em; /* 720px */
+    }
+}
+

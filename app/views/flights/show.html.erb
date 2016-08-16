@@ -1,20 +1,31 @@
-<%= content_tag "div", id: "businesses", data: {url: @flight.businesses} do %>
-<% end %>
-<div class="row" id='map-list-block'>
-  <div class="col gutters-d span-8-d" id="map-container">
-    <div id="map-canvas">
+<div class='section container' id='map-display-section'>
+  <div class='centered large'>
+
+    <%= content_tag "div", id: "businesses", data: {url: @flight.businesses} do %>
+    <% end %>
+
+    <div class="row" id='map-list-block'>
+      <div class="col span-12-t span-8-d">
+        <div class='box'>
+          <div id="map-canvas">
+
+          </div>
+        </div>
+      </div>
+
+      <div class='col span-12-t span-4-d'>
+        <div id="business-listings" class="box">
+          <h1><%= @flight.theme.capitalize %> flight</h1>
+          <% @flight.businesses.each do |business| %>
+            <h2><%= business.name %></h2>
+            <p><%= business.location %></p>
+            <p>Rating: <%= business.rating %></p>
+          <% end %>
+        </div>
+       </div>
 
     </div>
-  </div>
 
-  <div class="col gutters-d span-4-d gray-box" id="business-list">
-  <h1><%= @flight.theme.capitalize %> flight</h1>
-  <% @flight.businesses.each do |business| %>
-    <h2><%= business.name %></h2>
-    <p><%= business.location %></p>
-    <p>Rating: <%= business.rating %></p>
-  <% end %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_KEY'] %>&callback=initMap" defer async></script>
   </div>
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_KEY'] %>&callback=initMap" defer async></script>
