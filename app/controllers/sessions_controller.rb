@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def destroy
     end_user_session
-    redirect_to new_session_path
+    redirect_to search_flights_path
   end
 
   def new
