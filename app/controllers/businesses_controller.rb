@@ -5,11 +5,9 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    p @business.beverage
-    p @business.get_theme
 
     if @business.save
-      redirect_to '/flights/search'
+      redirect_to 'flights/create'
     else
       render 'new'
     end

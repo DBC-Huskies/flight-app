@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
   before_save :set_theme
-  attr_accessor :beverage
+  attr_accessor :beverage, :street_address, :city, :state
 
   enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
 
@@ -10,6 +10,14 @@ class Business < ActiveRecord::Base
 
   geocoded_by :location
   after_validation :geocode
+
+  def location
+
+  end
+
+  def location=(street_address, city, state)
+    self.location = [street_address, city, state].join(', ')
+  end
 
   def self.beverage_options
     ['Wine', 'Beer', 'Whiskey', 'Coffee']
