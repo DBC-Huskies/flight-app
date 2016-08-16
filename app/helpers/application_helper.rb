@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def show_errors(object, form_field)
+    if object.errors.any?
+      if !object.errors.messages[form_field].blank?
+        object.errors.messages[form_field].join(', ')
+      end
+    end
+  end
+
   def state_options
     [
       ['Alabama', 'AL'],
