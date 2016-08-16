@@ -1,6 +1,7 @@
 $(document).ready(function() {
   enterTheSite();
   submitCurateFlight();
+  seeTheFlightMap();
 });
 
 var enterTheSite = function() {
@@ -38,6 +39,31 @@ var submitCurateFlight = function() {
 
     function errorCallback(response) {
       // Need to write the code in order to display the error message on the search form
+      debugger;
+    }
+  });
+}
+
+var seeTheFlightMap = function() {
+  $('main').on('click', '#search-results-box a', function(e){
+    e.preventDefault();
+    var flightUrl;
+
+    flightUrl = $(this).attr('href');
+
+    $.ajax({
+      url: flightUrl,
+      success: successCallback,
+      error: errorCallback
+    });
+
+    function successCallback(response) {
+      $('#business-results-container').html(response);
+      $(window).scrollTop($('#map-display-section').offset().top);
+    }
+
+    function errorCallback(response) {
+      // Need to write the code if there is an error
       debugger;
     }
   });
