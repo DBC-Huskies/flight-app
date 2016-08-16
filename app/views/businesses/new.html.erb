@@ -3,6 +3,20 @@
   <p>Where do you like to go for a glass of wine, a cold beer, your favorite whiskey or relax with coffee? Provide the details for your favorite local establishments and they will be available for others as they create their own SipTrips.</p>
 
   <%= form_for @business do |f| %>
+
+    <% if @business.errors.any? %>
+      <div class='error-messages'>
+        <h3>
+          Please correct all errors listed below and try submitting again.
+        </h3>
+        <ul>
+          <% @business.errors.full_messages.each do |message| %>
+            <li class='errors'><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= f.label :name %>
     <%= f.text_field :name %>
 
@@ -13,7 +27,7 @@
     <%= f.text_field :city %>
 
     <%= f.label :state %>
-    <%= select_tag :state, options_for_select(us_states) %>
+    <%= f.select :state, options_for_select(state_options) %>
 
     <%= f.label :beverage %>
     <%= f.select :beverage, options_for_select(Business.beverage_options) %>

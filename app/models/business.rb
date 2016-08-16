@@ -1,23 +1,17 @@
 class Business < ActiveRecord::Base
   before_save :set_theme
-  attr_accessor :beverage, :street, :city, :state, :location
+  attr_accessor :beverage, :street, :city, :state
 
   enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
 
   has_and_belongs_to_many :flights
 
-  validates :name, :location, presence: true
+  validates :name, :street, :city, :location, presence: true
+  validates :name, uniqueness: true
 
   geocoded_by :location
   after_validation :geocode
 
-  def location
-    self.location = [street, city, state].join(', ')
-  end
-
-  def location=(street, city, state)
-    self.location = [street, city, state].join(', ')
-  end
 
   def self.beverage_options
     ['Wine', 'Beer', 'Whiskey', 'Coffee']

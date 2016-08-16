@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+.errors {
+  list-style-type: none;
+  color: #9e0303;
+  text-transform: uppercase;
+  font-size: .75em;
+  font-weight: bold;
+}

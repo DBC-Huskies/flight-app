@@ -40,7 +40,7 @@ var submitCurateFlight = function() {
 
     function errorCallback(response) {
       // Need to write the code in order to display the error message on the search form
-      debugger;
+
     }
   });
 }

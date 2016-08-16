@@ -5,10 +5,13 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    p [business_params[:street], business_params[:city], business_params[:state]].join(', ')
-    @business.location=([business_params[:street], business_params[:city], business_params[:state]])
+
+    address_array = [business_params[:street], business_params[:city], business_params[:state]]
+    @business.location= address_array.join(', ')
+
     if @business.save
-      redirect_to 'flights/create'
+      flash[:notice] = "Thank you for adding your favorite local business to our growing list available for others to enjoy."
+      redirect_to '/flights/search'
     else
       render 'new'
     end

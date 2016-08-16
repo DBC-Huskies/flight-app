@@ -1,4 +1,11 @@
 <div class="row col gutters-d span-12-d" id='search'>
+
+  <% if flash[:notice] %>
+    <div class='gray-box'>
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
   <div class='gray-box'>
   <%= content_tag(:h2, 'Curate Flights') %>
   <hr>

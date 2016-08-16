@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def us_states
+  def state_options
     [
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
