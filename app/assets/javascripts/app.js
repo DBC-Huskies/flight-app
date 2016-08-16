@@ -32,9 +32,7 @@ var submitCurateFlight = function() {
     });
 
     function successCallback(response) {
-      // $('#search').css({'float': 'none', 'margin-bottom': '25%'})
       $('#search-results-container').html(response);
-      // $('#flights-list').css({'margin-bottom': '25%', 'margin-top': '25%'});
       $(window).scrollTop($('#search-results-section').offset().top);
     }
 
