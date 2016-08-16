@@ -11,7 +11,7 @@ describe PagesController do
 
   it 'removes the header' do
     get :index
-    expect(response.body).to_not contain("SipTrip")
+    expect(response.body).to match /[header][hidden]/
   end
 
 end
