@@ -1,0 +1,20 @@
+<div class="row gray-box">
+<% if @login.errors.any? %>
+  <ul>
+  <% @login.errors.each do |key, message| %>
+  <li><%= "#{key} " + "#{message}" %></li>
+  <% end %>
+  </ul>
+<% end %>
+<h2>Login</h2>
+<%= form_for @login, :url => sessions_path do |f| %>
+
+<%= f.label "Username:" %>
+<%= f.text_field :username %>
+
+<%= f.label "Password:" %>
+<%= f.password_field :password %>
+
+<%= content_tag(:button, "Login") %>
+<% end %>
+</div>
