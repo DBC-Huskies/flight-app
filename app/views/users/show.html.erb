@@ -4,9 +4,7 @@
       <div class='box'>
 
         <% if flash[:notice] %>
-          <div class='box'>
-            <%= flash[:notice] %>
-          </div>
+          <%= flash[:notice] %>
         <% end %>
 
         <h2>Welcome, <%= @user.username %></h2>
