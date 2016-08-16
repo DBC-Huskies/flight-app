@@ -1,0 +1,23 @@
+<div id="new_business" class="row col gutters-d span-12-d gray-box">
+  <h2>Add a business to our growing list</h2>
+  <p>Where do you like to go for a glass of wine, a cold beer, your favorite whiskey or relax with coffee? Provide the details for your favorite local establishments and they will be available for others as they create their own SipTrips.</p>
+
+  <%= form_for @business do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :street %>
+    <%= f.text_field :street %>
+
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+
+    <%= f.label :state %>
+    <%= select_tag :state, options_for_select(us_states) %>
+
+    <%= f.label :beverage %>
+    <%= f.select :beverage, options_for_select(Business.beverage_options) %>
+
+    <%= content_tag(:button, "Submit") %>
+  <% end %>
+</div>
