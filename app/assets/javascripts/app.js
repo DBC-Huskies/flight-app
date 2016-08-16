@@ -39,7 +39,7 @@ var submitCurateFlight = function() {
 
     function errorCallback(response) {
       // Need to write the code in order to display the error message on the search form
-      debugger;
+
     }
   });
 }
@@ -64,7 +64,7 @@ var seeTheFlightMap = function() {
 
     function errorCallback(response) {
       // Need to write the code if there is an error
-      debugger;
+
     }
   });
 }
