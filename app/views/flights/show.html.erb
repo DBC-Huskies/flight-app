@@ -16,6 +16,9 @@
       <div class='col span-12-t span-4-d'>
         <div id="business-listings" class="box">
           <h1><%= @flight.theme.capitalize %> flight</h1>
+          <% if session[:user_id] != nil %>
+            <p><%= link_to "Bookmark this flight", bookmark_flight_path(@flight) %></p>
+          <% end %>
           <% @flight.businesses.each do |business| %>
             <h2><%= link_to business.name, business_path(business) %></h2>
             <p><%= business.location %></p>

@@ -8,12 +8,11 @@
         <% end %>
 
         <h2>Welcome, <%= @user.username %></h2>
-          <%= link_to "add business", new_business_path %>
 
-        <h3>Saved Flights</h3>
+        <h3>Flights you've bookmarked</h3>
         <ul>
         <% @user.flights.each do |flight| %>
-          <li><%= flight.name %></li>
+          <li><%= link_to flight.name, flight_path(flight) %></li>
         <% end %>
         </ul>
 
@@ -23,6 +22,8 @@
         <li><%= link_to "#{rating.business.name}", rating.business %></li>
         <% end %>
         </ul>
+
+        <%= link_to "Add a Business to SipTrip", new_business_path %>
 
       </div>
     </div>

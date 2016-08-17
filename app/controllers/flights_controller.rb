@@ -44,6 +44,13 @@ class FlightsController < ApplicationController
     end
   end
 
+  def bookmark
+    user = User.find(session[:user_id])
+    flight = Flight.find(params[:id])
+    user.flights << flight
+    redirect_to user_path(user)
+  end
+
   private
 
   def search_params
