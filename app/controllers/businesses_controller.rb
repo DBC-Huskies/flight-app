@@ -5,13 +5,13 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    @business.location= convert_address
     @business.google_place_id= @business.retrieve_google_place_id
 
     if @business.save
       flash[:notice] = "Thank you for adding your favorite local business to our growing list available for others to enjoy."
-      render 'show'
+      redirect_to business_path(@business.id)
     else
+      p @business.errors
       render 'new'
     end
   end
@@ -26,7 +26,4 @@ class BusinessesController < ApplicationController
     params.require(:business).permit(:name, :street, :city, :state, :beverage)
   end
 
-  def convert_address
-    [business_params[:street], business_params[:city], business_params[:state]].join(', ')
-  end
 end

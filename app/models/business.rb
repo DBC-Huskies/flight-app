@@ -1,5 +1,4 @@
 class Business < ActiveRecord::Base
-  before_save :set_theme
   attr_accessor :beverage, :street, :city, :state,:rating
 
   enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
@@ -8,7 +7,8 @@ class Business < ActiveRecord::Base
   has_many :ratings
 
   validates :name, :location, presence: true
-  validates :street, :city, presence: true, on: :create
+  validates :street, :city, presence: true, :unless => :has_location?
+
   validates :name, uniqueness: true
 
   geocoded_by :location
@@ -17,14 +17,6 @@ class Business < ActiveRecord::Base
 
   def self.beverage_options
     ['Wine', 'Beer', 'Whiskey', 'Coffee']
-  end
-
-  def get_theme
-    get_theme_enum(self.beverage)
-  end
-
-  def set_theme
-    self.theme = get_theme
   end
 
   def curate_flight(theme)
@@ -72,16 +64,8 @@ class Business < ActiveRecord::Base
   end
 
   private
-  def get_theme_enum(beverage)
-    case beverage
-    when 'Wine', 'wine'
-      0
-    when 'Beer', 'beer'
-      1
-    when 'Whiskey', 'whiskey'
-      2
-    when 'Coffee', 'coffee'
-      3
-    end
+
+  def has_location?
+    !!self.location
   end
 end
