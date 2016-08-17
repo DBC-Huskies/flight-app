@@ -69,14 +69,22 @@ describe 'Business' do
     let(:doggy) { User.create!({ username: 'puppy', password: 'woofwoofwoof'})}
     let(:cat) { User.create!({ username: 'kitty', password: 'meow'})}
 
-    it 'can has multiple ratings by different users' do
+    before (:each) do
       sbrewing.ratings.create({ author: doggy, value: 5})
       sbrewing.ratings.create({ author: cat, value: 1})
+    end
+
+    it 'can has multiple ratings by different users' do
       expect(sbrewing.ratings.count).to eq 2
     end
 
-    it 'updates the rating to be an average when user create a new rating for the business' do
+    it 'has an average rating' do
+      expect(sbrewing.average_rating).to eq 4
+    end
 
+    it 'updates the rating to be an average when user create a new rating for the business' do
+      p sbrewing.ratings
+      expect(sbrewing.rating).to eq 4
     end
 
   end

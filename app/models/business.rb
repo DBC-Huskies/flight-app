@@ -39,6 +39,18 @@ class Business < ActiveRecord::Base
     new_flight
   end
 
+  # if self.ratings.count >= 1 change default to average rating
+  # method that updates the rating
+
+  def average_rating
+    ratings_array = [ self.rating ]
+    self.ratings.each do |rating|
+      ratings_array << rating.value
+    end
+    average = ratings_array.reduce(:+) / ratings_array.size.to_f
+    return average.round
+  end
+
   private
   def get_theme_enum(beverage)
     case beverage
