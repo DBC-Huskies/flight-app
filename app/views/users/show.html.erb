@@ -9,6 +9,20 @@
 
         <h2>Welcome, <%= @user.username %></h2>
           <%= link_to "add business", new_business_path %>
+
+
+
+
+
+
+
+
+        <h3>Saved Flights</h3>
+        <ul>
+        <% @user.flights.each do |flight| %>
+          <li><%= flight.name %></li>
+        <% end %>
+        </ul>
       </div>
     </div>
   </div>
