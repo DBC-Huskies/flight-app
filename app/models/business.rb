@@ -6,7 +6,9 @@ class Business < ActiveRecord::Base
 
   has_and_belongs_to_many :flights
 
-  validates :name, :street, :city, :location, presence: true
+  validates :name, :location, presence: true
+  validates :street, :city, presence: true, on: :create
+
   validates :name, uniqueness: true
 
   geocoded_by :location
@@ -35,6 +37,25 @@ class Business < ActiveRecord::Base
       i += 1
     end
     new_flight
+  end
+
+  def retrieve_google_place_id
+    client = GooglePlaces::Client.new(ENV['MAP_KEY'])
+    spots = client.spots_by_query("#{self.name}, #{self.location}")
+    if spots.empty?
+      self.google_place_id= nil
+    else
+      self.google_place_id= spots[0].place_id
+    end
+  end
+
+  def lookup_place_details
+    client = GooglePlaces::Client.new(ENV['MAP_KEY'])
+    if self.google_place_id == nil
+      nil
+    else
+      client.spot(self.google_place_id)
+    end
   end
 
   private

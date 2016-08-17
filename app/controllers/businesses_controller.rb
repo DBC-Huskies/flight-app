@@ -6,6 +6,7 @@ class BusinessesController < ApplicationController
   def create
     @business = Business.new(business_params)
     @business.location= convert_address
+    @business.google_place_id= @business.retrieve_google_place_id
 
     if @business.save
       flash[:notice] = "Thank you for adding your favorite local business to our growing list available for others to enjoy."
@@ -13,6 +14,11 @@ class BusinessesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @business = Business.find(params[:id])
+    @details = @business.lookup_place_details
   end
 
   private
