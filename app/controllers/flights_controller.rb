@@ -15,6 +15,7 @@ class FlightsController < ApplicationController
 
       if @search.valid?
         @flights = @search.generate_flights
+        p @flights
         if request.xhr?
           render :'flights/search_results', layout: false
         else
@@ -43,10 +44,21 @@ class FlightsController < ApplicationController
     end
   end
 
+  def bookmark
+    bookmark_flight(session[:user_id], params[:id])
+    redirect_to user_path(session[:user_id])
+  end
+
   private
 
   def search_params
     params.require(:search_form).permit(:location, :beverage, :distance)
+  end
+
+  def bookmark_flight(user_id, flight_id)
+    user = User.find(user_id)
+    flight = Flight.find(flight_id)
+    user.flights << flight
   end
 
 end

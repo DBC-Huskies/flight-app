@@ -65,11 +65,19 @@ module ApplicationHelper
     ]
   end
 
+  def rating_options
+    [1, 2, 3, 4, 5]
+  end
+
   def set_user_session(user_id)
     session[:user_id] = user_id
   end
 
   def end_user_session
     session[:user_id] = nil
+  end
+
+  def user_logged_in_and_no_bookmark(flight)
+    session[:user_id] != nil && flight.users.include?(User.find(session[:user_id])) == false
   end
 end

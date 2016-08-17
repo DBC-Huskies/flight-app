@@ -12,22 +12,23 @@
       <% end %>
 
       <h2><%= @business.name %></h2>
-      <% if @details == nil %>
+
+      <p>
+      <% if @business.ratings.where(:author_id => session[:user_id]).length == 1 %>
+        You rated this business <%= @business.ratings.where(:author_id => session[:user_id]).first.value %> out of 5
       <% else %>
-
-
-
-        <h3>Neighborhood: <%= @details.address_components[2]["long_name"] %></h3>
-
-          <p>
-            <%= @details.formatted_address.split(',')[0] %></br>
-            <%= @details.formatted_address.split(',')[1] %>, <%= @details.formatted_address.split(',')[2] %>
-          </p>
-          <p><%= @details.formatted_phone_number %></p>
-
-          <% if @details.website == nil %>
-          <% else %>
-            <p><%= link_to "Website", @details.website, target: "_blank", rel: "nofollow" %></p>
+        <%= link_to "Rate this business", new_business_rating_path(@business) %>
+      <% end %>
+      </p>
+      <% unless @details == nil %>
+      <h3>Neighborhood: <%= @details.address_components[2]["long_name"] %></h3>
+      <p>
+        <%= @details.formatted_address.split(',')[0] %></br>
+        <%= @details.formatted_address.split(',')[1] %>, <%= @details.formatted_address.split(',')[2] %>
+      </p>
+      <p><%= @details.formatted_phone_number %></p>
+      <% unless @details.website == nil %>
+          <p><%= link_to "Website", @details.website, target: "_blank", rel: "nofollow" %></p>
           <% end %>
           <div class="business-hours">
             <ul>
