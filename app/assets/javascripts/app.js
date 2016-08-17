@@ -9,7 +9,7 @@ var enterTheSite = function() {
     e.preventDefault();
 
     $.ajax({
-      url: 'flights/search',
+      url: '/flights/search',
       success: successCallback
     });
 
@@ -25,7 +25,7 @@ var submitCurateFlight = function() {
     e.preventDefault();
 
     $.ajax({
-      url: 'flights/search_results',
+      url: '/flights/search_results',
       method: 'POST',
       data: $('#new_search_form').serialize(),
       success: successCallback,
