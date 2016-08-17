@@ -29,5 +29,4 @@ class BusinessesController < ApplicationController
   def convert_address
     [business_params[:street], business_params[:city], business_params[:state]].join(', ')
   end
-
 end
