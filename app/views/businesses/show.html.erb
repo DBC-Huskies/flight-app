@@ -13,16 +13,25 @@
         <%= @details.formatted_address.split(',')[1] %>, <%= @details.formatted_address.split(',')[2] %>
       </p>
       <p><%= @details.formatted_phone_number %></p>
-      <p><%= link_to "Website", @details.website, target: "_blank", rel: "nofollow" %></p>
+      <% if @details.website == nil %>
+      <% else %>
+        <p><%= link_to "Website", @details.website, target: "_blank", rel: "nofollow" %></p>
+      <% end %>
       <p>
         <ul>
-          <% @details.opening_hours["weekday_text"].each do |weekday_hours| %>
-            <li><%= weekday_hours  %></li>
+          <% if @details.opening_hours == nil %>
+          <% else %>
+            <% @details.opening_hours["weekday_text"].each do |weekday_hours| %>
+              <li><%= weekday_hours  %></li>
+            <% end %>
           <% end %>
         </ul>
       </p>
       <div class="business-image">
-        <img src="<%= @details.photos[0].fetch_url(150) %>" >
+        <% if @details.photos[0] == nil %>
+        <% else %>
+          <img src="<%= @details.photos[0].fetch_url(150) %>" >
+        <% end %>
       </div>
     </div>
   </div>
