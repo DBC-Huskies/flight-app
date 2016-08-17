@@ -24,8 +24,8 @@ class FlightsController < ApplicationController
         @errors = @search.errors
         if request.xhr?
           content_type :json
-# Add logic to make sure we pass
-# the right data to display the error messages on the search page
+          # Add logic to make sure we pass
+          # the right data to display the error messages on the search page
           @errors.to_json
         else
           render :'flights/search'
@@ -35,29 +35,11 @@ class FlightsController < ApplicationController
   end
 
   def show
-    if params[:id] == 'search_results'
-      @search = SearchForm.new
-      if @search.valid?
-        @flights = @search.generate_flights
-# add logic for the unhappy ajax call
-# Which case is this??  When does this happen?
-        if request.xhr?
-          render :'flights/search_results', layout: false
-        else
-          render :'flights/search_results'
-        end
-      else
-        #rerender the search template
-# add logic for the unhappy ajax call
-        render :'flights/search'
-      end
+    @flight = Flight.find(params[:id])
+    if request.xhr?
+      render :'flights/show', layout: false
     else
-      @flight = Flight.find(params[:id])
-      if request.xhr?
-        render :'flights/show', layout: false
-      else
-        render :'flights/show'
-      end
+      render :'flights/show'
     end
   end
 
