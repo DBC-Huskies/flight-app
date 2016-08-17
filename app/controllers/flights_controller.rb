@@ -45,16 +45,20 @@ class FlightsController < ApplicationController
   end
 
   def bookmark
-    user = User.find(session[:user_id])
-    flight = Flight.find(params[:id])
-    user.flights << flight
-    redirect_to user_path(user)
+    bookmark_flight(session[:user_id], params[:id])
+    redirect_to user_path(session[:user_id])
   end
 
   private
 
   def search_params
     params.require(:search_form).permit(:location, :beverage, :distance)
+  end
+
+  def bookmark_flight(user_id, flight_id)
+    user = User.find(user_id)
+    flight = Flight.find(flight_id)
+    user.flights << flight
   end
 
 end
