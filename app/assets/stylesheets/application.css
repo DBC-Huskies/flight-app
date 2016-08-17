@@ -26,5 +26,16 @@
 
 .business-image {
   float: right;
+}
 
+.image-container {
+  margin-bottom: 1.5em;
+}
+
+.google-power-image {
+  float: right;
+}
+
+.flash-message {
+  margin-bottom: 2em;
 }

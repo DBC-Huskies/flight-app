@@ -1,10 +1,11 @@
 <div class='section container'>
   <div class='centered'>
     <div class='box'>
-
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% end %>
+      <div class="flash-message">
+        <% if flash[:notice] %>
+          <%= flash[:notice] %>
+        <% end %>
+      </div>
 
       <% unless @details.photos[0] == nil %>
         <img class="business-image" src="<%= @details.photos[0].fetch_url(150) %>" >
@@ -21,28 +22,30 @@
       <% end %>
       </p>
       <% unless @details == nil %>
-      <h3>Neighborhood: <%= @details.address_components[2]["long_name"] %></h3>
-      <p>
-        <%= @details.formatted_address.split(',')[0] %></br>
-        <%= @details.formatted_address.split(',')[1] %>, <%= @details.formatted_address.split(',')[2] %>
-      </p>
-      <p><%= @details.formatted_phone_number %></p>
-      <% unless @details.website == nil %>
+        <h3>Neighborhood: <%= @details.address_components[2]["long_name"] %></h3>
+        <p>
+          <%= @details.formatted_address.split(',')[0] %></br>
+          <%= @details.formatted_address.split(',')[1] %>, <%= @details.formatted_address.split(',')[2] %>
+        </p>
+        <p><%= @details.formatted_phone_number %></p>
+        <% unless @details.website == nil %>
           <p><%= link_to "Website", @details.website, target: "_blank", rel: "nofollow" %></p>
-          <% end %>
-          <div class="business-hours">
-            <ul>
-              <% if @details.opening_hours == nil %>
-              <% else %>
-                <% @details.opening_hours["weekday_text"].each do |weekday_hours| %>
+        <% end %>
+        <div class="business-hours">
+          <ul>
+            <% if @details.opening_hours == nil %>
+            <% else %>
+              <% @details.opening_hours["weekday_text"].each do |weekday_hours| %>
                   <li><%= weekday_hours  %></li>
-                <% end %>
               <% end %>
-            </ul>
-          </div>
+            <% end %>
+          </ul>
         </div>
-
       <% end %>
+      <div class="image-container">
+        <img class="google-power-image" src="/assets/powered_by_google_on_white.png" >
+      </div>
     </div>
   </div>
 </div>
+

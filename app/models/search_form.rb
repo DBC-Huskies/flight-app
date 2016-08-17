@@ -7,7 +7,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   validates_presence_of :location, allow_blank: false, message: "Enter the start location of your adventure!"
 
   def self.beverage_options
-    ['Wine', 'Beer', 'Whiskey', 'Coffee']
+    ['Wine', 'Beer', 'Distillery', 'Coffee']
   end
 
   def self.distance_options
@@ -46,7 +46,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
       0
     when 'Beer', 'beer'
       1
-    when 'Whiskey', 'whiskey'
+    when 'Distillery', 'distillery'
       2
     when 'Coffee', 'coffee'
       3

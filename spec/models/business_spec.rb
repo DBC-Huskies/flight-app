@@ -26,8 +26,8 @@ describe 'Business' do
 
   describe 'enum' do
     describe 'theme associations' do
-      it 'validates whiskey is at position 2 in the theme enum' do
-        expect(Business.themes[:whiskey]).to eq 2
+      it 'validates distillery is at position 2 in the theme enum' do
+        expect(Business.themes[:distillery]).to eq 2
       end
 
       it 'validates wine is at position 0 in the theme enum' do
