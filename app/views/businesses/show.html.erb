@@ -1,6 +1,11 @@
 <div class='section container'>
   <div class='centered'>
     <div class='box'>
+
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+
       <h2><%= @business.name %></h2>
       <h3>Neighborhood: <%= @details.address_components[2]["long_name"] %></h3>
       <p>

@@ -10,7 +10,7 @@ class BusinessesController < ApplicationController
 
     if @business.save
       flash[:notice] = "Thank you for adding your favorite local business to our growing list available for others to enjoy."
-      redirect_to user_path(session[:user_id])
+      render 'show'
     else
       render 'new'
     end
