@@ -1,12 +1,15 @@
 class Business < ActiveRecord::Base
   before_save :set_theme
-  attr_accessor :beverage, :street, :city, :state
+  attr_accessor :beverage, :street, :city, :state,:rating
 
   enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
 
   has_and_belongs_to_many :flights
 
-  validates :name, :street, :city, :location, presence: true
+  has_many :ratings
+
+  validates :name, :location, presence: true
+  validates :street, :city, presence: true, on: :create
   validates :name, uniqueness: true
 
   geocoded_by :location
@@ -35,6 +38,19 @@ class Business < ActiveRecord::Base
       i += 1
     end
     new_flight
+  end
+
+  def average_rating
+    values = self.ratings.reload.map do |rating|
+      rating.value
+    end
+    average = values.reduce(:+) / values.size.to_f
+    average.round
+  end
+
+  def update_rating
+    self.rating = self.average_rating
+    self.save!
   end
 
   private

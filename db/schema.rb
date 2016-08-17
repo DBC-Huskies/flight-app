@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816002119) do
+ActiveRecord::Schema.define(version: 20160816191931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160816002119) do
     t.integer  "theme"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "value"
+    t.integer  "business_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "author_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
@@ -46,4 +54,6 @@ ActiveRecord::Schema.define(version: 20160816002119) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "ratings", "businesses"
+  add_foreign_key "ratings", "users", column: "author_id"
 end
