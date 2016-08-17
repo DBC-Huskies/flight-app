@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get '/' => 'pages#index'
 
-  resources :businesses , only: [:new, :create, :show]
+  resources :businesses , only: [:new, :create, :show] do
+    resources :ratings, only: [:new, :create]
+  end
 
   resources :flights, only: [:index, :show] do
     get 'search', on: :collection
@@ -10,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :ratings, only: [:new, :create]
+
 end

@@ -8,7 +8,7 @@ class Rating < ActiveRecord::Base
 
   after_save :update_business_rating_attribute
 
-  validates_uniqueness_of :author_id, :scope => :business_id
+  validates_uniqueness_of :author_id, :scope => :business_id, message: 'You have already rated this business'
 
   # validate :rating_already_given_by_user, :on => :create
 
