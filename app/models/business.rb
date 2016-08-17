@@ -24,7 +24,7 @@ class Business < ActiveRecord::Base
   end
 
   def curate_flight(theme)
-    new_flight = self.flights.create(name: "Flight no. #{Flight.last.id + 1}", theme: theme)
+    new_flight = self.flights.create!(theme: theme)
     businesses_around_self = Business.where(theme: theme).order(rating: :desc).near(self, 5).to_a
     businesses_around_self.delete(self)
     i = 0
@@ -74,12 +74,8 @@ class Business < ActiveRecord::Base
   end
 
  def convert_address
-    p has_location?
     unless has_location?
-      p self.street
-      p self.city
-      p self.state
-      if !self.street.empty? && !self.city.empty? && !self.state.empty?
+      if self.street && !self.street.empty? && self.city && !self.city.empty? && self.state && !self.state.empty?
         self.location= "#{self.street}, #{self.city}, #{self.state}"
       end
     end
