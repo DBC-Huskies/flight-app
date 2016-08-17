@@ -11,7 +11,7 @@ class BusinessesController < ApplicationController
       flash[:notice] = "Thank you for adding your favorite local business to our growing list available for others to enjoy."
       redirect_to business_path(@business.id)
     else
-      p @business.errors
+      @business.errors
       render 'new'
     end
   end
