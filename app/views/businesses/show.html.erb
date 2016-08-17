@@ -1,7 +1,22 @@
-<p>Hello World</p>
-<div>
-<%= @details.inspect %>
-
-<%= @details.formatted_phone_number %>
-
+<div class='section container'>
+  <div class='centered'>
+<% @details.inspect %>
+    <div class='box'>
+      <h2><%= @business.name %></h2>
+      <h3>Neighborhood: <%= @details.address_components[2]["long_name"] %></h3>
+      <p>
+        <%= @details.formatted_address.split(',')[0] %></br>
+        <%= @details.formatted_address.split(',')[1] %>, <%= @details.formatted_address.split(',')[2] %>
+      </p>
+      <p><%= @details.formatted_phone_number %></p>
+      <p><%= link_to "Website", @details.website, target: "_blank", rel: "nofollow" %></p>
+      <p>
+        <ul>
+          <% @details.opening_hours["weekday_text"].each do |weekday_hours| %>
+            <li><%= weekday_hours %></li>
+          <% end %>
+        </ul>
+      </p>
+    </div>
+  </div>
 </div>

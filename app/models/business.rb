@@ -56,6 +56,7 @@ class Business < ActiveRecord::Base
     else
       client.spot(self.google_place_id)
     end
+  end
 
   def average_rating
     values = self.ratings.reload.map do |rating|
