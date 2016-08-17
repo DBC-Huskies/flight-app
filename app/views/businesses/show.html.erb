@@ -1,4 +1,7 @@
 <p>Hello World</p>
-<PRE>
-<%= JSON.pretty_generate @details %>
-</PRE>
+<div>
+<%= @details.inspect %>
+
+<%= @details.formatted_phone_number %>
+
+</div>
