@@ -1,5 +1,7 @@
 class Business < ActiveRecord::Base
-  attr_accessor :beverage, :street, :city, :state,:rating
+  attr_accessor :beverage, :street, :city, :state, :rating
+
+  before_validation :convert_address
 
   enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
 
@@ -7,7 +9,7 @@ class Business < ActiveRecord::Base
   has_many :ratings
 
   validates :name, :location, presence: true
-  validates :street, :city, presence: true, :unless => :has_location?
+  validates :street, :city, :state, presence: true, :unless => :has_location?
 
   validates :name, uniqueness: true
 
@@ -16,7 +18,9 @@ class Business < ActiveRecord::Base
 
 
   def self.beverage_options
-    ['Wine', 'Beer', 'Whiskey', 'Coffee']
+    self.themes.keys.to_a.map do |key|
+      [key.titlecase, key ]
+    end
   end
 
   def curate_flight(theme)
@@ -68,4 +72,17 @@ class Business < ActiveRecord::Base
   def has_location?
     !!self.location
   end
+
+ def convert_address
+    p has_location?
+    unless has_location?
+      p self.street
+      p self.city
+      p self.state
+      if !self.street.empty? && !self.city.empty? && !self.state.empty?
+        self.location= "#{self.street}, #{self.city}, #{self.state}"
+      end
+    end
+  end
+
 end
