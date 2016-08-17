@@ -1,4 +1,5 @@
 class FlightsController < ApplicationController
+
   def index
     redirect_to search_flights_path
   end
@@ -23,10 +24,7 @@ class FlightsController < ApplicationController
       else
         @errors = @search.errors
         if request.xhr?
-          content_type :json
-          # Add logic to make sure we pass
-          # the right data to display the error messages on the search page
-          @errors.to_json
+          render :'flights/search', :layout => false, :status => :unprocessable_entity
         else
           render :'flights/search'
         end
