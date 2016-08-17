@@ -13,29 +13,28 @@
  *= require_tree .
  *= require_self
  */
-.business-hours {
-  font-size: .75em;
-  font-weight: bold;
-  text-align: center;
 
-  li {
-    list-style-type: none;
-  }
+body {
+  color: #232728;
 }
 
-
-.business-image {
-  float: right;
+a:link {
+  text-decoration: none;
+  color: #542e4d;
 }
 
-.image-container {
-  margin-bottom: 1.5em;
+a:visited {
+  color: #542e4d;
 }
 
-.google-power-image {
-  float: right;
+a:hover {
+  color: #4a868c;
 }
 
-.flash-message {
-  margin-bottom: 2em;
+#navigation {
+  margin-bottom: .25em;
+}
+
+#navigation a {
+  margin-right: .25em;
 }
