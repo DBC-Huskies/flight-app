@@ -12,9 +12,10 @@
       <% end %>
 
       <h2><%= @business.name %></h2>
+      <h3>Rating: <%= @business.average_rating %>
 
       <p>
-      <% if @business.ratings.where(:author_id => session[:user_id]).length == 1 %>
+      <% if user_already_rated(@business) %>
         You rated this business <%= @business.ratings.where(:author_id => session[:user_id]).first.value %> out of 5
       <% else %>
         <%= link_to "Rate this business", new_business_rating_path(@business) %>
