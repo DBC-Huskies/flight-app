@@ -2,6 +2,13 @@
   <div class='centered'>
     <div class='box'>
       <h2><%= @business.name %></h2>
+      <p>
+      <% if @business.ratings.where(:author_id => session[:user_id]).length == 1 %>
+        You rated this business <%= @business.ratings.where(:author_id => session[:user_id]).first.value %> out of 5
+      <% else %>
+        <%= link_to "Rate this business", new_business_rating_path(@business) %>
+      <% end %>
+      </p>
       <h3>Neighborhood: <%= @details.address_components[2]["long_name"] %></h3>
       <p>
         <%= @details.formatted_address.split(',')[0] %></br>

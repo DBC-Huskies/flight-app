@@ -1,0 +1,23 @@
+<div class='section container'>
+  <div class='centered'>
+    <div class='box'>
+      <h2><%= @rating.business.name %></h2>
+
+      <p>How would you rate your experience?</p>
+
+      <p class='errors'><%= show_errors(@rating, :author_id) %></p>
+
+      <%= form_for @rating, url: {action: "create"} do |f| %>
+
+          <div class='form-field'>
+            <%= f.label :value %>
+            <%= f.select :value, options_for_select(rating_options) %>
+          </div>
+
+          <%= content_tag(:button, "Submit") %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -65,6 +65,10 @@ module ApplicationHelper
     ]
   end
 
+  def rating_options
+    [1, 2, 3, 4, 5]
+  end
+
   def set_user_session(user_id)
     session[:user_id] = user_id
   end
