@@ -9,7 +9,7 @@ var enterTheSite = function() {
     e.preventDefault();
 
     $.ajax({
-      url: 'flights/search',
+      url: '/flights/search',
       success: successCallback
     });
 

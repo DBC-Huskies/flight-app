@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+.business-hours {
+  font-size: .75em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.business-hours li {
+  list-style-type: none;
+}
+
+.business-image {
+  float: right;
+
+}

@@ -13,7 +13,7 @@ describe Flight do
     end
 
     describe 'when not valid' do
-      it 'is not valid without a name' do
+    xit 'is not valid without a name' do
         expect(invalid_flight).to_not be_valid
       end
     end

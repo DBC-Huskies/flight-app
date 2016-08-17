@@ -1,6 +1,7 @@
 class Business < ActiveRecord::Base
-  before_save :set_theme
-  attr_accessor :beverage, :street, :city, :state,:rating
+  attr_accessor :beverage, :street, :city, :state, :rating
+
+  before_validation :convert_address
 
   enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
 
@@ -8,7 +9,8 @@ class Business < ActiveRecord::Base
   has_many :ratings
 
   validates :name, :location, presence: true
-  validates :street, :city, presence: true, on: :create
+  validates :street, :city, :state, presence: true, :unless => :has_location?
+
   validates :name, uniqueness: true
 
   geocoded_by :location
@@ -16,19 +18,13 @@ class Business < ActiveRecord::Base
 
 
   def self.beverage_options
-    ['Wine', 'Beer', 'Whiskey', 'Coffee']
-  end
-
-  def get_theme
-    get_theme_enum(self.beverage)
-  end
-
-  def set_theme
-    self.theme = get_theme
+    self.themes.keys.to_a.map do |key|
+      [key.titlecase, key ]
+    end
   end
 
   def curate_flight(theme)
-    new_flight = self.flights.create(name: "Flight no. #{Flight.last.id + 1}", theme: theme)
+    new_flight = self.flights.create!(theme: theme)
     businesses_around_self = Business.where(theme: theme).order(rating: :desc).near(self, 5).to_a
     businesses_around_self.delete(self)
     i = 0
@@ -72,16 +68,17 @@ class Business < ActiveRecord::Base
   end
 
   private
-  def get_theme_enum(beverage)
-    case beverage
-    when 'Wine', 'wine'
-      0
-    when 'Beer', 'beer'
-      1
-    when 'Whiskey', 'whiskey'
-      2
-    when 'Coffee', 'coffee'
-      3
+
+  def has_location?
+    !!self.location
+  end
+
+ def convert_address
+    unless has_location?
+      if self.street && !self.street.empty? && self.city && !self.city.empty? && self.state && !self.state.empty?
+        self.location= "#{self.street}, #{self.city}, #{self.state}"
+      end
     end
   end
+
 end
