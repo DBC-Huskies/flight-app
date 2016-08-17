@@ -9,6 +9,14 @@
 
         <h2>Welcome, <%= @user.username %></h2>
           <%= link_to "add business", new_business_path %>
+
+        <h3>Businesses you've rated</h3>
+        <ul>
+        <% @user.ratings.each do |rating| %>
+        <li><%= link_to "#{rating.business.name}", rating.business %></li>
+        <% end %>
+        </ul>
+
       </div>
     </div>
   </div>
