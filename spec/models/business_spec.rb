@@ -79,12 +79,11 @@ describe 'Business' do
     end
 
     it 'has an average rating' do
-      expect(sbrewing.average_rating).to eq 4
+      expect(sbrewing.average_rating).to eq 3
     end
 
     it 'updates the rating to be an average when user create a new rating for the business' do
-      p sbrewing.ratings
-      expect(sbrewing.rating).to eq 4
+      expect(sbrewing.rating).to eq 3
     end
 
   end

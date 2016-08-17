@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
   before_save :set_theme
-  attr_accessor :beverage, :street, :city, :state
+  attr_accessor :beverage, :street, :city, :state,:rating
 
   enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
 
@@ -8,7 +8,8 @@ class Business < ActiveRecord::Base
 
   has_many :ratings
 
-  validates :name, :street, :city, :location, presence: true
+  validates :name, :location, presence: true
+  validates :street, :city, presence: true, on: :create
   validates :name, uniqueness: true
 
   geocoded_by :location
@@ -39,16 +40,17 @@ class Business < ActiveRecord::Base
     new_flight
   end
 
-  # if self.ratings.count >= 1 change default to average rating
-  # method that updates the rating
-
   def average_rating
-    ratings_array = [ self.rating ]
-    self.ratings.each do |rating|
-      ratings_array << rating.value
+    values = self.ratings.reload.map do |rating|
+      rating.value
     end
-    average = ratings_array.reduce(:+) / ratings_array.size.to_f
-    return average.round
+    average = values.reduce(:+) / values.size.to_f
+    average.round
+  end
+
+  def update_rating
+    self.rating = self.average_rating
+    self.save!
   end
 
   private

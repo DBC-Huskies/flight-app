@@ -8,6 +8,8 @@ class Rating < ActiveRecord::Base
 
   validate :rating_already_given_by_user, :on => :create
 
+  after_save :update_business_rating_attribute
+
   def rating_already_given_by_user
     if user_gave_rating_to_biz
       errors.add(:repeate_rating, 'This user already gave a rating to this business')
@@ -22,6 +24,10 @@ class Rating < ActiveRecord::Base
       else
         false
       end
+  end
+
+  def update_business_rating_attribute
+    self.business.update_rating
   end
 
 end
