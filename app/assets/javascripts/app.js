@@ -59,12 +59,15 @@ var seeTheFlightMap = function() {
 
     function successCallback(response) {
       $('#business-results-container').html(response);
+      adjustMapHeight();
       $(window).scrollTop($('#map-display-section').offset().top);
     }
 
     function errorCallback(response) {
       // Need to write the code if there is an error
-
     }
+
   });
 }
+
+
