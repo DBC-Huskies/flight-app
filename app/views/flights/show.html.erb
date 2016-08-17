@@ -21,7 +21,7 @@
           <% @flight.businesses.each do |business| %>
             <h2><%= link_to business.name, business_path(business) %></h2>
             <p><%= business.location %></p>
-            <p>Rating: <%= business.rating %></p>
+            <p>Rating: <%= business.average_rating %></p>
           <% end %>
         </div>
        </div>

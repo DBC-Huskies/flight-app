@@ -80,4 +80,8 @@ module ApplicationHelper
   def user_logged_in_and_no_bookmark(flight)
     session[:user_id] != nil && flight.users.include?(User.find(session[:user_id])) == false
   end
+
+  def user_already_rated(business)
+    business.ratings.where(:author_id => session[:user_id]).length == 1
+  end
 end

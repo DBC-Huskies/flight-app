@@ -37,7 +37,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   def get_leading_businesses(location, beverage, distance)
-    businesses = Business.limit(3).where(theme: beverage).order(rating: :desc).near(location, distance)
+    businesses = Business.limit(3).where(theme: beverage).order(average_rating: :desc).near(location, distance)
   end
 
   def get_theme_enum(beverage)

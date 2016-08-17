@@ -25,7 +25,7 @@ class Business < ActiveRecord::Base
 
   def curate_flight(theme)
     new_flight = self.flights.create!(theme: theme)
-    businesses_around_self = Business.where(theme: theme).order(rating: :desc).near(self, 5).to_a
+    businesses_around_self = Business.where(theme: theme).order(average_rating: :desc).near(self, 5).to_a
     businesses_around_self.delete(self)
     i = 0
     2.times do |thing|
@@ -54,17 +54,18 @@ class Business < ActiveRecord::Base
     end
   end
 
-  def average_rating
+  def update_rating
+    self.average_rating = generate_average
+    self.save!
+  end
+
+  def generate_average
     values = self.ratings.reload.map do |rating|
       rating.value
     end
+    values << self.average_rating
     average = values.reduce(:+) / values.size.to_f
-    average.round
-  end
-
-  def update_rating
-    self.rating = self.average_rating
-    self.save!
+    (average*10).ceil / 10.0
   end
 
   private
