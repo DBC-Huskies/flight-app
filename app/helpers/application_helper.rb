@@ -76,4 +76,8 @@ module ApplicationHelper
   def end_user_session
     session[:user_id] = nil
   end
+
+  def user_logged_in_and_no_bookmark(flight)
+    session[:user_id] != nil && flight.users.include?(User.find(session[:user_id])) == false
+  end
 end
