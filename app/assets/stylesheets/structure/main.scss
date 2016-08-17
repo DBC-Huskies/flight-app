@@ -1,0 +1,58 @@
+@import 'utilities/_variables';
+@import 'partials/_button';
+
+body {
+  background-image: image-url('/assets/beers.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  font-family: $font;
+  height: 100%;
+}
+
+main {
+  position: relative;
+  height: 100%;
+}
+
+header {
+ background-color: rgba(200, 200, 200, .6);
+}
+
+footer {
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #D2A430;
+  position: fixed;
+}
+
+.hidden {
+  display: none;
+}
+
+.clearfix:after {
+  content:" ";
+  display:block;
+  clear:both;
+}
+
+.section {
+  min-height: 1400px;
+}
+
+.centered {
+  padding-top: 6em;
+  margin: 0 auto;
+  width: 35em;
+}
+
+@media (min-width: 75em) {
+    .centered.large {
+        width: 65em; /* 720px */
+    }
+}
+

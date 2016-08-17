@@ -1,0 +1,27 @@
+#homepage {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+}
+
+#homepage-box {
+  align-self: center;
+  margin-bottom: 5%;
+}
+
+html {
+  height: 100%;
+}
+
+#homepage-box-content {
+  margin-top: 15%;
+}
+
+@media (min-width: 75em) {
+    #homepage-box {
+      width: 35%;
+      height: 35%;
+    }
+}
+
+
