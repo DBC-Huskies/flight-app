@@ -17,6 +17,7 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
+    @theme_name = @business.theme
     @details = @business.lookup_place_details
   end
 

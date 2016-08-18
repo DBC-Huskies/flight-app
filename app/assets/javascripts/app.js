@@ -5,12 +5,10 @@ $(document).ready(function() {
 });
 
 var pushBrowserHistory = function(url, title, state) {
-  console.log("pushBrowserHistory", url, title, state);
   history.pushState( state, title, url);
 }
 
 window.addEventListener("popstate", function(e) {
-  console.log("popstate",e,window.historyInitiated,window.location.pathname);
 
   if (window.location.pathname === '/') {
     window.location.reload();
@@ -58,6 +56,9 @@ var runSearchForm = function(pushState, formData) {
     });
 
     function successCallback(response) {
+      var theme;
+      var formValues;
+
       $('main').html(response);
       if (pushState) {
         pushBrowserHistory( '/flights/search_results', 'SipTrip', {
@@ -65,12 +66,36 @@ var runSearchForm = function(pushState, formData) {
           data: formData
         });
       }
+
       $(window).scrollTop($('#search-results-container').offset().top);
+
+      formValues = deparam(formData);
+      theme = formValues["search_form[beverage]"].toLowerCase();
+      setBackgroundTheme(theme);
+
     }
 
     function errorCallback(response) {
       $('main').html(response.responseText);
     }
+
+    function deparam(query) {
+    var pairs, i, keyValuePair, key, value, map = {};
+
+    if (query.slice(0, 1) === '?') {
+        query = query.slice(1);
+    }
+    if (query !== '') {
+        pairs = query.split('&');
+        for (i = 0; i < pairs.length; i += 1) {
+            keyValuePair = pairs[i].split('=');
+            key = decodeURIComponent(keyValuePair[0]);
+            value = (keyValuePair.length > 1) ? decodeURIComponent(keyValuePair[1]) : undefined;
+            map[key] = value;
+        }
+    }
+    return map;
+}
 
 }
 
