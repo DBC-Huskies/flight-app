@@ -32,12 +32,12 @@
 
           <div class='form-field'>
             <%= f.label :state %>
-            <%= f.select :state, options_for_select(state_options) %>
+            <%= f.select :state, options_for_select(state_options), { class: 'dropdown' } %>
           </div>
 
           <div class='form-field'>
             <%= f.label :beverage %>
-            <%= f.select :beverage, options_for_select(Business.beverage_options) %>
+            <%= f.select :beverage, options_for_select(Business.beverage_options), { class: 'dropdown' } %>
           </div>
 
           <%= content_tag(:button, "Submit") %>
