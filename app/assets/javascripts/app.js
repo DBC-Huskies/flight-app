@@ -1,14 +1,18 @@
 $(document).ready(function() {
-  hideHeaderFooter();
+  toggleHeaderFooter();
   enterTheSite();
   submitCurateFlight();
   seeTheFlightMap();
 });
 
-var hideHeaderFooter = function() {
+var toggleHeaderFooter = function() {
   if (window.location.pathname === '/') {
     $('header').hide();
     $('footer').hide();
+  } else {
+    $('main').show();
+    $('header').show();
+    $('footer').show();
   }
 }
 
@@ -43,17 +47,8 @@ var loadSearchForm = function(pushState) {
     function successCallback(response) {
       if(pushState){
         pushBrowserHistory( '/flights/search', 'Search SipTrip', { callback: 'loadSearchForm' } )
-        $('main').animate({
-          opacity: "toggle"
-        }, 500);
       }
       $('main').html(response);
-      $('header').animate({
-        opacity: "toggle"
-      }, 500);
-      $('footer').animate({
-        opacity: "toggle"
-      }, 500);
     }
 }
 
@@ -64,6 +59,15 @@ var enterTheSite = function() {
       opacity: "toggle"
     }, 500, function(){
       loadSearchForm(true);
+      $('main').animate({
+        opacity: 'toggle'
+      }, 500);
+      $('header').animate({
+        opacity: 'toggle'
+      }, 500);
+      $('footer').animate({
+        opacity: 'toggle'
+      }, 500);
     });
   });
 }
