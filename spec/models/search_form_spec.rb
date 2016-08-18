@@ -34,7 +34,7 @@ describe SearchForm do
 
   describe '#assemble_digest' do
     it 'should generate consistent result' do
-      expect(beer_search.send(:assemble_digest)).to eq 'asdsads'
+      expect(beer_search.send(:assemble_digest)).to eq "cb6e0eda94c3a95fe1b4d1a3e5d1869ec4cc8481bf230bf5325e190ffe28fa55"
     end
   end
 
