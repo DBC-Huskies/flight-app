@@ -23,16 +23,10 @@ class Business < ActiveRecord::Base
     end
   end
 
-  def curate_flight(theme)
+  def curate_flight(theme, distance_from_leading_biz)
     new_flight = Flight.new(theme: theme)
-    businesses_around_self = Business.where(theme: theme).near(self, 3).to_a
-
-    i = 0
-    businesses_around_self.length.times do |thing|
-      new_flight.businesses << businesses_around_self[i]
-      i += 1
-    end
-
+    businesses_around_self = Business.where(theme: theme).near(self, distance_from_leading_biz)
+    new_flight.businesses.concat(businesses_around_self)
     new_flight.save
     new_flight
   end
