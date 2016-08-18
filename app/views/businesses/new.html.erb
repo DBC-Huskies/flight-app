@@ -2,16 +2,12 @@
   <div class='centered'>
     <div class="" id='business-form'>
       <div class='box'>
-        <h2>Add a business to our growing list</h2>
+        <%= content_tag(:h2, 'Add a business to our growing list') %>
+        <hr>
+
         <p>Where do you like to go for a glass of wine, a cold beer, your favorite distillery or relax with coffee? Provide the details for your favorite local establishments and they will be available for others as they create their own SipTrips.</p>
 
         <%= form_for @business do |f| %>
-          <% if @business.errors.any? %>
-            <h3>
-              Please correct all errors listed below and try submitting again.
-            </h3>
-          <% end %>
-
           <div class='form-field'>
             <%= f.label :name %>
             <%= f.text_field :name %>
@@ -42,7 +38,7 @@
 
           <%= content_tag(:button, "Submit") %>
         <% end %>
-        </div>
+      </div>
     </div>
   </div>
 </div>

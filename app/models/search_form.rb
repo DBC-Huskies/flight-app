@@ -6,7 +6,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   attr_accessor :location, :beverage, :distance
 
   validates_presence_of :beverage, :distance
-  validates_presence_of :location, allow_blank: false, message: "Enter the start location of your adventure!"
+  validates_presence_of :location, allow_blank: false, message: "Enter the start location of your adventure."
 
   def self.beverage_options
     ['Wine', 'Beer', 'Distillery', 'Coffee']
