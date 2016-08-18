@@ -18,7 +18,15 @@ main {
 }
 
 header {
- background-color: rgba(200, 200, 200, .8);
+  color: rgba(200, 200, 200, .8);
+  background-color: #542e4d;
+  text-align: center;
+  height: 120px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 2;
 }
 
 footer {
@@ -47,7 +55,7 @@ footer {
 }
 
 .centered {
-  padding-top: 6em;
+  padding-top: 15em;
   margin: 0 auto;
   width: 35em;
 }

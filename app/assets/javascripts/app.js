@@ -1,8 +1,16 @@
 $(document).ready(function() {
+  hideHeaderFooter();
   enterTheSite();
   submitCurateFlight();
   seeTheFlightMap();
 });
+
+var hideHeaderFooter = function() {
+  if (window.location.pathname === '/') {
+    $('header').hide();
+    $('footer').hide();
+  }
+}
 
 var pushBrowserHistory = function(url, title, state) {
   history.pushState( state, title, url);
@@ -32,17 +40,29 @@ var loadSearchForm = function(pushState) {
 
     function successCallback(response) {
       if(pushState){
-         pushBrowserHistory( '/flights/search', 'Search SipTrip', { callback: 'loadSearchForm' } )
-       }
-      $('header').removeClass('hidden');
+        pushBrowserHistory( '/flights/search', 'Search SipTrip', { callback: 'loadSearchForm' } )
+        $('main').animate({
+          opacity: "toggle"
+        }, 500);
+      }
       $('main').html(response);
+      $('header').animate({
+        opacity: "toggle"
+      }, 500);
+      $('footer').animate({
+        opacity: "toggle"
+      }, 500);
     }
 }
 
 var enterTheSite = function() {
   $('#homepage-box').on('click', 'button', function(e){
     e.preventDefault();
-    loadSearchForm(true);
+    $('main').animate({
+      opacity: "toggle"
+    }, 500, function(){
+      loadSearchForm(true);
+    });
   });
 }
 
