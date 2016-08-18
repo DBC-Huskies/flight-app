@@ -15,8 +15,10 @@
       <div class='col span-12-t span-4-d'>
         <div id="business-listings" class="box">
           <h1><%= @flight.theme.capitalize %> Flights</h1>
-          <% if user_logged_in_and_no_bookmark(@flight) %>
-            <p><%= link_to "Bookmark this flight", bookmark_flight_path(@flight) %></p>
+          <% if user_logged_in? %>
+            <% if no_bookmarked?(@flight) %>
+              <p><%= link_to "Bookmark this flight", bookmark_flight_path(@flight) %></p>
+            <% end %>
           <% end %>
           <% @flight.businesses.each do |business| %>
             <h2><%= link_to business.name, business_path(business) %></h2>
