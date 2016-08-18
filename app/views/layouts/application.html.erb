@@ -10,7 +10,18 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
   </head>
   <body>
-    <%= render "layouts/header" %>
+    <header class="row">
+      <h1>SipTrip</h1>
+      <div id="navigation">
+      <% if session[:user_id] %>
+        <%= link_to "profile", user_path(session[:user_id]) %>
+        <%= link_to "logout", session_path(session[:user_id]), method: :delete %>
+      <% else %>
+        <%= link_to "register", new_user_path %>
+        <%= link_to "login", new_session_path %>
+      <% end %>
+      </div>
+    </header>
 
     <main>
         <%= yield %>

@@ -21,11 +21,21 @@ main {
 header {
   color: rgba(200, 200, 200, .8);
   background-color: #542e4d;
+  text-align: center;
+  height: 120px;
   width: 100%;
   top: 0;
   left: 0;
   position: fixed;
   z-index: 2;
+
+  a:link {
+    color: rgba(200, 200, 200, .8)
+  }
+
+  a:visited {
+    color: rgba(200, 200, 200, .8)
+  }
 }
 
 footer {
@@ -54,7 +64,7 @@ footer {
 }
 
 .centered {
-  padding-top: 6em;
+  padding-top: 15em;
   margin: 0 auto;
   width: 35em;
 }
