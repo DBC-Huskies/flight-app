@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe SearchForm do
+  let(:beer_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Beer', distance: 5) }
+  let(:wine_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Wine', distance: 5) }
+  let(:distillery_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Distillery', distance: 5) }
+  let(:coffee_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Coffee', distance: 5) }
 
   it 'has a collection of beverages for the form' do
     expect(SearchForm.beverage_options).to eq ['Wine', 'Beer', 'Distillery', 'Coffee']
@@ -17,11 +21,6 @@ describe SearchForm do
 
   describe '#generate_flights' do
 
-    let(:beer_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Beer', distance: 5) }
-    let(:wine_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Wine', distance: 5) }
-    let(:distillery_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Distillery', distance: 5) }
-    let(:coffee_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Coffee', distance: 5) }
-
     let(:beer_collection) { beer_search.generate_flights }
     let(:wine_collection) { wine_search.generate_flights }
     let(:distillery_collection) { distillery_search.generate_flights }
@@ -31,6 +30,12 @@ describe SearchForm do
       expect(beer_collection).to be_an Array
     end
 
+  end
+
+  describe '#assemble_digest' do
+    it 'should generate consistent result' do
+      expect(beer_search.send(:assemble_digest)).to eq 'asdsads'
+    end
   end
 
 end

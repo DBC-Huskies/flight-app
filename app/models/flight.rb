@@ -7,16 +7,19 @@ class Flight < ActiveRecord::Base
   has_and_belongs_to_many :businesses
   has_and_belongs_to_many :users
 
+  validates :search_digest, presence: true
   validates :name, presence: true, uniqueness: true
 
 
   def set_name
+    p 'set_name'
     if self.name.nil? || self.name.empty?
       self.name= "Flight no. __ID__"
     end
   end
 
   def update_name
+    p 'update_name'
     if self.name == "Flight no. __ID__"
       update_attribute(:name, "Flight no. #{self.id}")
     end
