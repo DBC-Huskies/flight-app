@@ -1,0 +1,25 @@
+.business-hours {
+  font-size: .75em;
+  font-weight: bold;
+  text-align: center;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.business-image {
+  float: right;
+}
+
+.image-container {
+  margin-bottom: 1.5em;
+
+  img {
+    float: right;
+  }
+}
+
+.flash-message {
+  margin-bottom: 2em;
+}

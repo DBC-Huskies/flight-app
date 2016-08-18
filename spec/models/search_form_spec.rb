@@ -3,7 +3,7 @@ require 'rails_helper'
 describe SearchForm do
 
   it 'has a collection of beverages for the form' do
-    expect(SearchForm.beverage_options).to eq ['Wine', 'Beer', 'Whiskey', 'Coffee']
+    expect(SearchForm.beverage_options).to eq ['Wine', 'Beer', 'Distillery', 'Coffee']
   end
 
   it 'has a collection of distances' do
@@ -19,12 +19,12 @@ describe SearchForm do
 
     let(:beer_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Beer', distance: 5) }
     let(:wine_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Wine', distance: 5) }
-    let(:whiskey_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Whiskey', distance: 5) }
+    let(:distillery_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Distillery', distance: 5) }
     let(:coffee_search) { SearchForm.new(location: '83 S King St., Seattle, WA', beverage: 'Coffee', distance: 5) }
 
     let(:beer_collection) { beer_search.generate_flights }
     let(:wine_collection) { wine_search.generate_flights }
-    let(:whiskey_collection) { whiskey_search.generate_flights }
+    let(:distillery_collection) { distillery_search.generate_flights }
     let(:coffee_collection) { coffee_search.generate_flights }
 
     it 'returns an array' do

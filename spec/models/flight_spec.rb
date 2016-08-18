@@ -20,8 +20,8 @@ describe Flight do
   end
 
   describe 'theme associations' do
-    it 'validates whiskey is at position 2 in the theme enum' do
-      expect(Flight.themes[:whiskey]).to eq 2
+    it 'validates distillery is at position 2 in the theme enum' do
+      expect(Flight.themes[:distillery]).to eq 2
     end
 
     it 'validates wine is at position 0 in the theme enum' do

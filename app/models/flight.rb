@@ -2,7 +2,7 @@ class Flight < ActiveRecord::Base
   before_validation :set_name
   after_create :update_name
 
-  enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }
+  enum theme: { wine: 0, beer: 1, distillery: 2, coffee: 3 }
 
   has_and_belongs_to_many :businesses
   has_and_belongs_to_many :users

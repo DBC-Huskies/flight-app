@@ -8,6 +8,8 @@ body {
   background-position: center center;
   background-size: cover;
   font-family: $font;
+  color: #232728;
+  letter-spacing: .06em;
   height: 100%;
 }
 
@@ -17,7 +19,7 @@ main {
 }
 
 header {
- background-color: rgba(200, 200, 200, .6);
+ background-color: rgba(200, 200, 200, .8);
 }
 
 footer {
@@ -26,7 +28,8 @@ footer {
   left: 0;
   height: 60px;
   width: 100%;
-  background-color: #D2A430;
+  background-color: #542e4d;
+  color: rgba(200, 200, 200, .8);
   position: fixed;
 }
 

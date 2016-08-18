@@ -8,17 +8,30 @@ form {
     padding-bottom: 5px;
   }
 
-  input {
-    margin-bottom: 12px;
+  input[type=text] {
+    width: 200px;
+    border: 1px solid #542e4d;
+    border-radius: .25em;
+
   }
 
   select {
+    width: 200px;
+    border: 1px solid #542e4d;
+    border-radius: .25em;
     margin-bottom: 15px;
   }
 
   button {
+    color: #542e4d;
+    border: 1px solid #542e4d;
     display: block;
     margin: auto;
     margin-top: 20px;
+  }
+
+  button:hover {
+    color: #4a868c;
+    border: 1px solid #4a868c;
   }
 }
