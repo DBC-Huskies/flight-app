@@ -36,13 +36,25 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   private
+
   def assemble_digest
-    string = @location + @beverage + @distance.to_s
+    string = location_string_to_lat_long_string + @beverage + @distance.to_s
     Digest::SHA256.hexdigest(string)
   end
 
   def flights_with_digest(search_digest)
     Flight.where(search_digest: search_digest)
+  end
+
+  def location_string_to_lat_long_string
+    lat_long_array = Geocoder.coordinates(@location)
+
+    lat_long_string = ''
+    lat_long_array.each do |coordinate|
+      rounded_coordinate_string = ((coordinate*10000).ceil / 10000.0).to_s
+      lat_long_string.concat(rounded_coordinate_string)
+    end
+    lat_long_string
   end
 
   def self.distance_array(min, max)

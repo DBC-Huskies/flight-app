@@ -12,14 +12,12 @@ class Flight < ActiveRecord::Base
 
 
   def set_name
-    p 'set_name'
-    if self.name.nil? || self.name.empty?
+      if self.name.nil? || self.name.empty?
       self.name= "Flight no. __ID__"
     end
   end
 
   def update_name
-    p 'update_name'
     if self.name == "Flight no. __ID__"
       update_attribute(:name, "Flight no. #{self.id}")
     end

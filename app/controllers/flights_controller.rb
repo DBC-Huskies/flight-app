@@ -33,11 +33,15 @@ class FlightsController < ApplicationController
   end
 
   def show
-    @flight = Flight.find(params[:id])
-    if request.xhr?
-      render :'flights/show', layout: false
+    if params[:id] == 'search_results'
+      redirect_to search_flights_path
     else
-      render :'flights/show'
+      @flight = Flight.find(params[:id])
+      if request.xhr?
+        render :'flights/show', layout: false
+      else
+        render :'flights/show'
+      end
     end
   end
 
