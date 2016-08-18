@@ -108,7 +108,7 @@ describe FlightsController do
 
   describe 'GET #show' do
 
-    let!(:new_flight) { Flight.create(name: "Best Flight EVER", theme: 1) }
+    let!(:new_flight) { Flight.create(name: "Best Flight EVER", theme: 1, search_digest: 'AKsdlsafihldsf8475') }
 
     describe 'HTTP requests' do
 

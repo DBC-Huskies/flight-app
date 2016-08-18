@@ -1,3 +1,5 @@
+require 'digest'
+
 class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   include ActiveModel::Model
 
@@ -17,18 +19,43 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   end
 
   def generate_flights
-    enum = get_theme_enum(@beverage)
-    leading_businesses = get_leading_businesses(@location, enum, @distance)
+    search_digest = assemble_digest
+    flights = flights_with_digest(search_digest)
 
-    flights = []
-    leading_businesses.each do |business|
-      new_flight = business.curate_flight(enum, MAX_CURATE_RADIUS)
-      flights << new_flight
+    if flights.empty?
+      enum = get_theme_enum(@beverage)
+      leading_businesses = get_leading_businesses(@location, enum, @distance)
+
+      flights = []
+      leading_businesses.each do |business|
+        new_flight = business.curate_flight(enum, search_digest, MAX_CURATE_RADIUS)
+        flights << new_flight
+      end
     end
     flights
   end
 
   private
+
+  def assemble_digest
+    string = location_string_to_lat_long_string + @beverage + @distance.to_s
+    Digest::SHA256.hexdigest(string)
+  end
+
+  def flights_with_digest(search_digest)
+    Flight.where(search_digest: search_digest)
+  end
+
+  def location_string_to_lat_long_string
+    lat_long_array = Geocoder.coordinates(@location)
+
+    lat_long_string = ''
+    lat_long_array.each do |coordinate|
+      rounded_coordinate_string = ((coordinate*100).ceil / 100.0).to_s
+      lat_long_string.concat(rounded_coordinate_string)
+    end
+    lat_long_string
+  end
 
   def self.distance_array(min, max)
     distance_array = [2.5, 5, 7.5]
