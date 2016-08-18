@@ -24,14 +24,25 @@ class Business < ActiveRecord::Base
   end
 
   def curate_flight(theme)
-    new_flight = self.flights.create!(theme: theme)
-    businesses_around_self = Business.where(theme: theme).order(average_rating: :desc).near(self, 5).to_a
+    new_flight = self.flights.create(theme: theme)
+    p new_flight.businesses
+
+    businesses_around_self = Business.where(theme: theme).order(average_rating: :desc).near(self, 3).to_a
     businesses_around_self.delete(self)
+    p "HEEEEEEEEEEEY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! (businesses around self MINUS self)"
+    p businesses_around_self
+
     i = 0
-    2.times do |thing|
+    businesses_around_self.length.times do |thing|
       new_flight.businesses << businesses_around_self[i]
+      p new_flight.businesses
       i += 1
     end
+
+    p "NEW FLIGHT!!!!!!!!!!!!!!!!!!!!!!!!!"
+    p new_flight.businesses
+
+
     new_flight
   end
 

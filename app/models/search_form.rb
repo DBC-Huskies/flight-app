@@ -23,7 +23,6 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
       new_flight = business.curate_flight(enum)
       flights << new_flight
     end
-
     flights
   end
 
