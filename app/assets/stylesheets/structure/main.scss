@@ -2,7 +2,6 @@
 @import 'partials/_button';
 
 body {
-  background-image: image-url('/assets/beers.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -34,11 +33,24 @@ footer {
   text-align: center;
   bottom: 0;
   left: 0;
-  height: 60px;
+  height: 80px;
   width: 100%;
   background-color: #542e4d;
   color: rgba(200, 200, 200, .8);
   position: fixed;
+
+    #photo-credits {
+    font-size: 10px;
+      a:link {
+        color: rgba(200, 200, 200, .8);
+      }
+      a:hover {
+        color: #4a868c;
+      }
+      a:visited {
+        color: rgba(200, 200, 200, .8);
+      }
+    }
 }
 
 .hidden {
@@ -66,4 +78,5 @@ footer {
         max-width: 65em; /* 720px */
     }
 }
+
 

@@ -1,0 +1,6 @@
+$list: beer wine coffee wine1 distillery beer1 wine2
+
+
+@each $background in $list
+  .background-#{$background}
+    background-image: image-url("#{$background}.jpg")

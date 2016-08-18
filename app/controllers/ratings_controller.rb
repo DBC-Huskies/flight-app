@@ -1,11 +1,13 @@
 class RatingsController < ApplicationController
   def new
     @rating = Business.find(params[:business_id]).ratings.new
+    @theme_name = @rating.business.theme
   end
 
   def create
     @rating = Rating.new(rating_params)
     @rating.business = Business.find(params['business_id'])
+    @theme_name = @rating.business.theme
     @rating.author = User.find(session[:user_id])
     if @rating.save
       session[:flash] = "Thank you for submitting a rating!"

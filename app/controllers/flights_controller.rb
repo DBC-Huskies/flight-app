@@ -13,6 +13,7 @@ class FlightsController < ApplicationController
 
   def search_results
     @search = SearchForm.new(search_params)
+    @theme_name = @search.beverage.downcase
 
       if @search.valid?
         @flights = @search.generate_flights
@@ -37,6 +38,7 @@ class FlightsController < ApplicationController
       redirect_to search_flights_path
     else
       @flight = Flight.find(params[:id])
+      @theme_name = @flight.theme
       if request.xhr?
         render :'flights/show', layout: false
       else
