@@ -42,8 +42,11 @@ var loadSearchForm = function(pushState) {
 
     function successCallback(response) {
       if(pushState){
-         pushBrowserHistory( '/flights/search', 'Search SipTrip', { callback: 'loadSearchForm' } )
-       }
+        pushBrowserHistory( '/flights/search', 'Search SipTrip', { callback: 'loadSearchForm' } )
+        $('main').animate({
+          opacity: "toggle"
+        }, 500);
+      }
       $('main').html(response);
       $('header').animate({
         opacity: "toggle"
@@ -57,7 +60,11 @@ var loadSearchForm = function(pushState) {
 var enterTheSite = function() {
   $('#homepage-box').on('click', 'button', function(e){
     e.preventDefault();
-    loadSearchForm(true);
+    $('main').animate({
+      opacity: "toggle"
+    }, 500, function(){
+      loadSearchForm(true);
+    });
   });
 }
 
