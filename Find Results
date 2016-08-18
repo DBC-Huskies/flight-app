@@ -1,0 +1,196 @@
+Searching 3562 files for "whiskey"
+
+/Users/apprentice/final/flight-app/app/assets/javascripts/imageRotation.js:
+   10
+   11    currentIndex = 0;
+   12:   imageCollection = [ 'beer', 'wine', 'coffee', 'wine1', 'distillery', 'beer1', 'wine2' ];
+   13
+   14    setInterval( rotateBackgroundTheme, 10000);
+
+/Users/apprentice/final/flight-app/app/assets/stylesheets/structure/backgrounds.sass:
+    1: $list: beer wine coffee wine1 distillery beer1 wine2
+    2
+    3
+
+/Users/apprentice/final/flight-app/coverage/index.html:
+ 2350            <span class="hits">1</span>
+ 2351
+ 2352:           <code class="ruby">  enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }</code>
+ 2353          </li>
+ 2354
+ ....
+ 2866            <span class="hits">1</span>
+ 2867
+ 2868:           <code class="ruby">  enum theme: { wine: 0, beer: 1, whiskey: 2, coffee: 3 }</code>
+ 2869          </li>
+ 2870
+ ....
+ 3448            <span class="hits">1</span>
+ 3449
+ 3450:           <code class="ruby">    [&#39;Wine&#39;, &#39;Beer&#39;, &#39;Whiskey&#39;, &#39;Coffee&#39;]</code>
+ 3451          </li>
+ 3452
+ ....
+ 3682
+ 3683
+ 3684:           <code class="ruby">    when &#39;Whiskey&#39;, &#39;whiskey&#39;</code>
+ 3685          </li>
+ 3686
+
+/Users/apprentice/final/flight-app/log/development.log:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/03/03DaW9K96tzijHDsXyL-ZSOHDcTC5j5ODu-CcQYee0A.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/1_/1_ALQEL0UgK5Ib89Y4sNwlQlKzgXzWU0EXTTPQC7Mfk.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/3-/3-P864FqMehwV3UNLjT4NeJAwCKWMpIPrf4i-FkWsx0.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/5a/5awRIAYqq3Jwt5dA5-m1kDvJdXj4ht6O_0N-MAhFI5Y.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/6-/6-DQ29YK6RMJZW_ba3x7HCirdFFehMc0HcKgi5QcQfQ.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/7d/7DzVyKjTh0yd1GBo59LpqgnF5p3W9gc4FCEo9p5aEeQ.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/7E/7ehhkWl_cDrIw_nhGlyeExfAPe7FXFceojp3UW48Gp0.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/83/83xxPuOtUtlMSW0GkvixQ0ndYJwiOcARGGAM9O4xCPQ.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/8a/8aYWmi8MwZoFsTWwBnhKVNl7Ky_rTFWdx2EPY3z7UCc.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/8W/8wuDviNoRvebIIZK5aOoppyxq09GHRBo97swDjJuyIs.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/98/98IopdrxNDYA8oEnBtgBsp8DEcYxYZZxuNWQTfwZgME.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/9A/9AdlzHnMPgoU4ZYhN-tx3H43MWn1pvhALc5uWE5mZFA.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Ac/aCRPFQLcelG3qGC0XToLaiVPBJOiewNsPmWvMkhJE2c.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Ao/aoTna033vIRuUHhB5uYfu4VEKcbK8jP9Ylak7yQar54.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/ax/AxOZcmI9SxMOThE3rMhPu0BD78lNu2Hl5qQWogVsKik.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/B4/B4Vka4SrHC9Iok1BFLYvxUKrNKJB4QF2xLo9w0x4-b8.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/bP/bpng3sQYdBBMjj0_nNwIe7oe69mvkcGs7j4BwNNcUIM.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/c0/c05-Q_iOntNcUl9hZDE95G54_I1iFemrMALD6z5lctQ.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/c9/c994u6GOejkonKsSFm0ku5sPNx6Atlht2KiGZa-afjY.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/C_/C_p8SyyZ6LRK8bOvySF-G5wuJlS5czJsdkJ6PuEMyvs.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/cV/cvwBjCOXyuotkRCc1v84JnT8esXRXtIgbt9M6MX6IRM.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/dC/dcL65CXAu1aQoHEp8oBVgRIidqUSITBNHsCPheZURfY.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Dl/DLtM0zJY2n6VUgm2XLz34nxt4dJ88DYSp7IZl-ie28o.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/EI/EidDY7rJ2WPiOlfFa1nsbNsVIbQqw7UOrnxGtMe3t4g.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/eM/emtSZAUBoxPVv8b9w331VaoE2M69ut7kOZecxKzqi8M.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/FF/fFQjOZevLntVftx3qEgvOFL2hPVc0-WrHY0QTJPlW2c.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/GH/gHd9cisqokLZyjWPwwqgcstxYgIbl2GnXRRsIT8OI_s.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Gm/GMuwuPrfyXfXFqDXL1um6cWU_U8n1nDPWikfHiRcT-g.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Gr/groRfgRSlY6KmFizV9Z-UEBO9BaTDI_WQtmE7bqMyjU.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Ht/HtJ2N04nbiYd6tIsgPcizMgtDbuGSWF7OO0yDaLzMTQ.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/l9/l9WEs6akJeYIgLsJ4KHjWKr4sPEWE1RqC4DBswmkcLQ.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Mk/mKr_V179pRAZOHtlyxJMq6gLiOtjtrnT27EB1J4PaI8.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Mn/MnbIoY0FnN7vruDlaaT5v4oVzN4dlzk5a4xLpFetkQg.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/NF/NFGuGsLNSkEO3WneHiCGNkfiSJxuuDvjkjFXMyvNL1k.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/nH/nH5dJA7ZiwlwTSzek-klxqv0mhalQIHtBOVNLqeaW6Q.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/OL/olA0E6EPj1gT4sc9xUctLV71-wTf7bIEgO18oAT80fA.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/P2/P2shrdtXD1dDoMJKofF0LCXLF7D9DPJyEMxUQMWBMZE.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/PE/PE12OsgAYcX3rRvUjX1BWfoScBjItxoDe0LLhOdEdKk.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/qt/qTl6fY4hP0SG9fkWjdIlJTRjS9T7RrmB_6g9bmM58pw.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/RF/rfvy8oK1KGiVlV4a7Ypclyii3rOWtuJWKG0JiHAkykI.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/sQ/sqlffJcvBmBwKI4Eyj4Wnle0dbxL3Y6X1JuhMIVOasM.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/st/StU4qvIh-_-TVnwUaNJ64by47Jz4g6A67_caRTZ8jl4.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/Th/THVeCoi9iNRaNEMFGVnTexGpNtTMy1hAIAFRelgmYKI.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/tm/tmbCnhEzjOtX-9VIQpNP6kXKYtv0o7HBrUPXUlvLBx0.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/tQ/tqtCCSZdLchiFUUano04kshiNMZ11bbOhhaQRP8c_jo.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/vA/vaIc5q4q2eUK1Mod4q3vWqqCO23-oltWK69XvYEg0nc.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/xt/xtwesK2cJ_PYiZ33xFTBca1My1pbpQ9LodT1pfrq7FE.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/y6/Y6qg44OqTz9CgxtA1dOSleK6FsJ2y3ctwfCVm-pb5Zk.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/yg/Yg2t8slQqG33ioHezkfbDVSMEYW5ijh8tKuC5ctG9ho.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/zd/zdCEHGX_rLNN1LZZa07Jd_n05AMomciBmqhoZUHDyVE.cache:
+    <binary>
+
+/Users/apprentice/final/flight-app/tmp/cache/assets/sprockets/v3.0/ZV/zVucT0p3t5jdZHt9meRFu6_sZ9OHeT9mkK8npekxCr4.cache:
+    <binary>
+
+104 matches across 55 files

@@ -9,7 +9,7 @@ var rotateBackground = function() {
   var currentIndex;
 
   currentIndex = 0;
-  imageCollection = [ 'beer', 'wine', 'coffee', 'wine1', 'whiskey', 'beer1', 'wine2' ];
+  imageCollection = [ 'beer', 'wine', 'coffee', 'wine1', 'distillery', 'beer1', 'wine2' ];
 
   setInterval( rotateBackgroundTheme, 10000);
 
