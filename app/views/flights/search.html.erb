@@ -5,26 +5,24 @@
         <%= content_tag(:h2, 'Curate Flights') %>
         <hr>
 
-        <div id='error-message'>
-          <% if !@errors.blank? %>
-            <ul><% @errors.each do |key, error_message| %>
-              <li><%= error_message %></li>
-            <% end %></ul>
-          <% end %>
-        </div>
-
         <%= form_for @search, :url => search_results_flights_path do |f| %>
-          <%= f.label :location %>
-          <%= f.text_field :location %>
-          <%= f.label :beverage %>
-          <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
-          <%= f.label :distance_in_miles %>
-          <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+          <div class='form-field'>
+            <%= f.label :location %>
+            <%= f.text_field :location %>
+            <p class='errors'><%= show_errors(@search, :location) %></p>
+          </div>
+          <div class='form-field'>
+            <%= f.label :beverage %>
+            <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
+          </div>
+          <div class='form-field'>
+            <%= f.label :distance_in_miles %>
+            <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+          </div>
           <%= content_tag(:button, "Submit") %>
         <% end %>
       </div>
     </div>
-
   </div>
 </div>
 

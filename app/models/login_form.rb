@@ -3,7 +3,10 @@ class LoginForm
 
   attr_accessor :username, :password
 
-  validates_presence_of :username, :password
+
+  validates_presence_of :username, allow_blank: false, message: "Enter your username."
+  validates_presence_of :password, allow_blank: false, message: "Enter your password."
+
   validate :authentic_user
 
   def authentic_user
