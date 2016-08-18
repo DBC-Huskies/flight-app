@@ -27,8 +27,6 @@ class Business < ActiveRecord::Base
     new_flight = Flight.new(theme: theme, search_digest: digest)
     businesses_around_self = Business.where(theme: theme).near(self, distance_from_leading_biz)
     new_flight.businesses.concat(businesses_around_self)
-    p new_flight
-    p new_flight.businesses
     new_flight.save!
     new_flight
   end
