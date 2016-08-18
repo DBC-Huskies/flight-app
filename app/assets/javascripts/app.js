@@ -1,8 +1,16 @@
 $(document).ready(function() {
+  hideHeaderFooter();
   enterTheSite();
   submitCurateFlight();
   seeTheFlightMap();
 });
+
+var hideHeaderFooter = function() {
+  if (window.location.pathname === '/') {
+    $('header').addClass('hidden');
+    $('footer').addClass('hidden');
+  }
+}
 
 var pushBrowserHistory = function(url, title, state) {
   console.log("pushBrowserHistory", url, title, state);
@@ -36,8 +44,13 @@ var loadSearchForm = function(pushState) {
       if(pushState){
          pushBrowserHistory( '/flights/search', 'Search SipTrip', { callback: 'loadSearchForm' } )
        }
-      $('header').removeClass('hidden');
       $('main').html(response);
+      $('header').animate({
+        opacity: "toggle"
+      }, 500);
+      $('footer').animate({
+        opacity: "toggle"
+      }, 500);
     }
 }
 
