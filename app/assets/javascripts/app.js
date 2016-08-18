@@ -7,8 +7,8 @@ $(document).ready(function() {
 
 var hideHeaderFooter = function() {
   if (window.location.pathname === '/') {
-    $('header').addClass('hidden');
-    $('footer').addClass('hidden');
+    $('header').hide();
+    $('footer').hide();
   }
 }
 
