@@ -85,7 +85,7 @@ describe FlightsController do
         end
 
         it 'renders the results page' do
-          expect(response).to render_template :search_results
+          expect(response).to render_template :'flights/search'
         end
 
       end

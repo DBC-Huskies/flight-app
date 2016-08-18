@@ -17,7 +17,7 @@ class FlightsController < ApplicationController
       if @search.valid?
         @flights = @search.generate_flights
         if request.xhr?
-          render :'flights/search_results', layout: false
+          render :'flights/search', layout: false
         else
           render :'flights/search_results'
         end

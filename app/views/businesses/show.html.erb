@@ -1,5 +1,6 @@
 <div class='section container'>
   <div class='centered'>
+
     <div class='box'>
       <div class="flash-message">
         <% if flash[:notice] %>
@@ -7,8 +8,10 @@
         <% end %>
       </div>
 
-      <% unless @details.photos[0] == nil %>
-        <img class="business-image" src="<%= @details.photos[0].fetch_url(150) %>" >
+      <% if @details && !@details.photos.empty? %>
+        <% unless @details.photos[0] == nil %>
+          <img class="business-image" src="<%= @details.photos[0].fetch_url(150) %>" >
+        <% end %>
       <% end %>
 
       <h2><%= @business.name %></h2>
