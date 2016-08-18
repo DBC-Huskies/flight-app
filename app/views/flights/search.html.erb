@@ -28,5 +28,9 @@
   </div>
 </div>
 
-<div id="search-results-container"></div>
+<div id="search-results-container">
+  <% unless @flights.nil? %>
+    <%= render :partial => 'results', :locals =>{ :flights => @flights } %>
+  <% end %>
+</div>
 <div id="business-results-container"></div>
