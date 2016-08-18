@@ -51,7 +51,7 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
     lat_long_string = ''
     lat_long_array.each do |coordinate|
-      rounded_coordinate_string = ((coordinate*10000).ceil / 10000.0).to_s
+      rounded_coordinate_string = ((coordinate*100).ceil / 100.0).to_s
       lat_long_string.concat(rounded_coordinate_string)
     end
     lat_long_string
