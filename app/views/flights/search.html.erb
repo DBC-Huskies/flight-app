@@ -14,12 +14,18 @@
         </div>
 
         <%= form_for @search, :url => search_results_flights_path do |f| %>
-          <%= f.label :location %>
-          <%= f.text_field :location %>
+          <div class='form-field'>
+            <%= f.label :location %>
+            <%= f.text_field :location %>
+        </div>
+        <div class='form-field'>
           <%= f.label :beverage %>
           <%= f.select :beverage, options_for_select(SearchForm.beverage_options) %>
           <%= f.label :distance_in_miles %>
+        </div
+        <div class='form-field'>
           <%= f.select :distance, options_for_select(SearchForm.distance_options) %>
+        </div>
           <%= content_tag(:button, "Submit") %>
         <% end %>
       </div>
