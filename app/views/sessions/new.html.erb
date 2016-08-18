@@ -1,20 +1,25 @@
-<div class="row box">
-<% if @login.errors.any? %>
-  <ul>
-  <% @login.errors.each do |key, message| %>
-  <li><%= "#{key} " + "#{message}" %></li>
-  <% end %>
-  </ul>
-<% end %>
-<h2>Login</h2>
-<%= form_for @login, :url => sessions_path do |f| %>
+<div class='section container' id='login-section'>
+  <div class='centered'>
+    <div class="" id='login'>
+      <div class="box">
+        <h2>Login</h2>
+        <hr>
+        <%= form_for @login, :url => sessions_path do |f| %>
+        <div class='form-field'>
+          <%= f.label "Username:" %>
+          <%= f.text_field :username %>
+          <p class='errors'><%= show_errors(@login, :username) %></p>
+        </div>
 
-<%= f.label "Username:" %>
-<%= f.text_field :username %>
+        <div class='form-field'>
+          <%= f.label "Password:" %>
+          <%= f.password_field :password %>
+          <p class='errors'><%= show_errors(@login, :password) %></p>
+        </div>
 
-<%= f.label "Password:" %>
-<%= f.password_field :password %>
-
-<%= content_tag(:button, "Login") %>
-<% end %>
+        <%= content_tag(:button, "Login") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

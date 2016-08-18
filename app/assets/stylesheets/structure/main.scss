@@ -19,9 +19,13 @@ main {
 }
 
 header {
- color: rgba(200, 200, 200, .8);
- background-color: #542e4d;
- width: 100%;
+  color: rgba(200, 200, 200, .8);
+  background-color: #542e4d;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 2;
 }
 
 footer {
