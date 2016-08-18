@@ -77,8 +77,12 @@ module ApplicationHelper
     session[:user_id] = nil
   end
 
-  def user_logged_in_and_no_bookmark(flight)
-    session[:user_id] != nil && flight.users.include?(User.find(session[:user_id])) == false
+  def user_logged_in?
+    session[:user_id] != nil
+  end
+
+  def no_bookmarked?(flight)
+    flight.users.include?(User.find(session[:user_id])) == false
   end
 
   def user_already_rated(business)
