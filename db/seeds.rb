@@ -8,7 +8,7 @@
 
 biz_sample_data = [
   {name: 'Charles Smith Wine Jet City', location: '1136 S Albro Pl, Seattle, WA 98108', average_rating: 4.0, theme: 0, google_place_id: 'ChIJVym2i-xBkFQRikp5JxnbiuE'},
-  {name: 'Elson Cellars', location: '2960 4th Ave S, Seattle, WA 98134', average_rating: 5.0, theme: 0, google_place_id: 'ChIJb8KVi8kNkFQR_e7zWgSAneM'},
+  {name: 'Elsom Cellars', location: '2960 4th Ave S, Seattle, WA 98134', average_rating: 5.0, theme: 0, google_place_id: 'ChIJb8KVi8kNkFQR_e7zWgSAneM'},
   {name: 'Stomani Cellars', location: '1403 Dexter Ave N, Seattle, WA 98109', average_rating: 2.0, theme: 0, google_place_id:'ChIJ4xKG6T0VkFQR-sIc8E4f_dQ'},
   {name: 'Hand Of God Wines', location: '308 9th Ave N, Seattle, WA 98109', average_rating: 4.0, theme: 0, google_place_id: 'ChIJrceiwjcVkFQRgLvQSohGx7o'},
   {name: 'The Tasting Room', location: 'Pike Place Market, 1924 Post Alley, Seattle, WA 98101', average_rating: 3.0, theme: 0, google_place_id: 'ChIJQVHlzbJqkFQR3KSsOoYgmr4'},
