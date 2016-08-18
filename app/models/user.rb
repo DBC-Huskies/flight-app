@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, uniqueness: true, allow_blank: false, message: "Enter a username."
   validates :password, length: { :minimum => 4}
-  validates_presence_of :password_confirmation, allow_blank: false, message: "Confirm your password."
 
   has_secure_password
 end
