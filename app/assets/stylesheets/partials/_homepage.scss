@@ -15,6 +15,19 @@ html {
 
 #homepage-box-content {
   margin-top: 15%;
+
+  button {
+    color: #542e4d;
+    border: 1px solid #542e4d;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    color: #4a868c;
+    border: 1px solid #4a868c;
+  }
 }
 
 @media (min-width: 75em) {
