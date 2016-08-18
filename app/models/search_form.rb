@@ -1,6 +1,8 @@
 class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
   include ActiveModel::Model
 
+  MAX_CURATE_RADIUS = 3
+
   attr_accessor :location, :beverage, :distance
 
   validates_presence_of :beverage, :distance
@@ -20,10 +22,9 @@ class SearchForm # https://robots.thoughtbot.com/activemodel-form-objects
 
     flights = []
     leading_businesses.each do |business|
-      new_flight = business.curate_flight(enum)
+      new_flight = business.curate_flight(enum, MAX_CURATE_RADIUS)
       flights << new_flight
     end
-
     flights
   end
 
