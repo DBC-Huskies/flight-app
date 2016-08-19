@@ -9,7 +9,7 @@
 wine_biz_data = [
   {name: 'Charles Smith Wine Jet City', location: '1136 S Albro Pl, Seattle, WA 98108', theme: 0},
   {name: 'Elsom Cellars', location: '2960 4th Ave S, Seattle, WA 98134', theme: 0},
-  {name: 'Stomani Cellars', location: '1403 Dexter Ave N, Seattle, WA 98109', theme: 0,
+  {name: 'Stomani Cellars', location: '1403 Dexter Ave N, Seattle, WA 98109', theme: 0},
   {name: 'Hand Of God Wines', location: '308 9th Ave N, Seattle, WA 98109', theme: 0},
   {name: 'The Tasting Room', location: 'Pike Place Market, 1924 Post Alley, Seattle, WA 98101', theme: 0},
   {name: '21 Acres', location: '13701 NE 171st Street, Woodinville, WA 98072', theme: 0},
@@ -217,7 +217,25 @@ distillery_biz_data = [
   {name: 'Martin Ryan Distilling Co', location: '2304 NW Savier St, Portland, OR 97210', theme: 2}
 ]
 
-biz_sample_data.each do |business_data|
+distillery_biz_data.each do |business_data|
+  business = Business.new(business_data)
+  business.retrieve_google_place_id
+  business.save
+end
+
+beer_biz_data.each do |business_data|
+  business = Business.new(business_data)
+  business.retrieve_google_place_id
+  business.save
+end
+
+coffee_biz_data.each do |business_data|
+  business = Business.new(business_data)
+  business.retrieve_google_place_id
+  business.save
+end
+
+wine_biz_data.each do |business_data|
   business = Business.new(business_data)
   business.retrieve_google_place_id
   business.save
