@@ -7,62 +7,57 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 wine_biz_data = [
-  {name: 'Charles Smith Wine Jet City', location: '1136 S Albro Pl, Seattle, WA 98108', theme: 0},
-  {name: 'Elsom Cellars', location: '2960 4th Ave S, Seattle, WA 98134', theme: 0},
-  {name: 'Stomani Cellars', location: '1403 Dexter Ave N, Seattle, WA 98109', theme: 0},
-  {name: 'Hand Of God Wines', location: '308 9th Ave N, Seattle, WA 98109', theme: 0},
-  {name: 'The Tasting Room', location: 'Pike Place Market, 1924 Post Alley, Seattle, WA 98101', theme: 0},
-  {name: '21 Acres', location: '13701 NE 171st Street, Woodinville, WA 98072', theme: 0},
-  {name: 'Adams Bench Winery', location: '14360 160th Pl NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Alexandria Nicole Cellars', location: '14810 NE 145th St, Woodinville, WA 98072', theme: 0},
-  {name: 'áMaurice Cellars', location: '14463 Woodinville-Redmond Rd NE, Woodinville, WA 98072', theme: 0},
-  {name: 'áMaurice Cellars', location: '14463 Woodinville-Redmond Rd NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Domanico Cellars', location: '825 NW 49th St, Seattle, WA 98107', theme: 0},
-  {name: 'Laurelhurst Cellars Winery', location: '5608 7th Ave S, Seattle, WA 98108', theme: 0},
-  {name: 'Viscon Cellars', location: '5910 California Ave SW, Seattle, WA 98136', theme: 0},
-  {name: 'J Bookwalter Tasting Studio', location: '14810 NE 145th St, Woodinville, WA 98072', theme: 0},
-  {name: 'Rolling Bay Winery', location: '10334 Beach Crest, Bainbridge Island, WA 98110', theme: 0},
-  {name: 'Fletcher Bay Winery', location: '9415 Coppertop Loop NE, Bainbridge Island, WA 98110', theme: 0},
-  {name: 'Eleven Winery', location: '287 Winslow Way E, Bainbridge Island, WA 98110', theme: 0},
-  {name: 'Island Vintners', location: '450 Winslow Way E, Bainbridge Island, WA 98110', theme: 0},
-  {name: 'Aspenwood Cellars Winery', location: '18642 142nd Ave NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Waving Tree Winery', location: '11901 124th AVE NE, Kirkland, WA 98034', theme: 0},
-  {name: 'Matthews Winery', location: '16116 140th Pl NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Eye of the Needle Winery', location: '19501 144th Ave NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Northwest Cellars', location: '11909 124th Ave NE, Kirkland, WA 98034', theme: 0},
-  {name: 'Eagle Harbor Wine Company', location: '278 Winslow Way E, Bainbridge Island, WA 98110', theme: 0},
-  {name: 'Patterson Cellars', location: '14505 148th Ave NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Perennial Vintners', location: '8840 NE Lovgreen Rd, Bainbridge Island, WA 98110', theme: 0},
-  {name: 'Mark Ryan Winery', location: '14475 Woodinville-redmond Rd NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Kestrel Cellar and Tasting Room', location: '19501 144th Ave NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Martedi Winery', location: '16110 Woodinville-Redmond Rd NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Darby Winery', location: '14450 Woodinville Redmond Rd NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Sparkman Cellars', location: '19501 144 Ave. NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Palouse Winery', location: '12431 Vashon Hwy SW, Vashon, WA 98070', theme: 0},
-  {name: 'Arista Wine Cellars', location: '320 5th Ave S, Edmonds, WA 98020', theme: 0},
-  {name: 'Red Sky Winery', location: '19495 144th Ave NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Efeste', location: '19730 144th Ave NE, Woodinville, WA 98072', theme: 0},
-  {name: 'Vashon Winery', location: '10317 SW 156th St, Vashon, WA 98070', theme: 0},
-  {name: 'Finn Hill Winery', location: '8218 NE 115th Way, Kirkland, WA 98034', theme: 0},
-  {name: 'Almquist Family Vintners', location: '198 Nickerson St, Seattle, WA 98109', theme: 0},
-  {name: 'Barrique', location: '1762 Airport Way S, Seattle, WA 98134', theme: 0},
-  {name: 'Bartholomew Winery', location: '3100 Airport Way S, Seattle, WA 98134', theme: 0},
-  {name: 'Cloudlift Cellars', location: '312 S Lucile St, Seattle, WA 98108', theme: 0},
-  {name: 'Eight Bells Winery', location: '6213-B Roosevelt Way NE, Seattle, WA 98115', theme: 0},
-  {name: 'Falling Rain Cellars', location: '825 NW 49th Street, Seattle, WA 98107', theme: 0},
-  {name: 'Kerloo Cellars', location: '3911 1st Ave South, Seattle, WA 98134', theme: 0},
-  {name: 'Nota Bene Cellars', location: '9320 15th Ave S Unit CC, Seattle, WA 98108', theme: 0},
-  {name: 'O·S Winery', location: '5319 4th Avenue South, Seattle, WA 98108', theme: 0},
-  {name: 'Riley Sexton Vintners', location: '1403 Dexter Avenue North', theme: 0},
-  {name: 'Robert Ramsay Cellars', location: '1629 Queen Anne Ave N 102, Seattle, WA 98109', theme: 0},
-  {name: 'Structure Cellars', location: '3849 1st Ave So suite D , Seattle, WA 98134 ', theme: 0},
-  {name: 'The Estates Wine Room', location: '307 Occidental Ave S, Seattle, WA 98104', theme: 0},
-  {name: 'Two Brothers Winery', location: '3902 California Ave SW, Seattle, WA 98116', theme: 0},
-  {name: 'Ward Johnson Winery', location: '1445 Elliott Ave W, Seattle, WA 98119', theme: 0},
-  {name: 'Welcome Road Winery', location: '4415 SW Stevens St, Seattle, WA 98116', theme: 0},
-  {name: 'Capri Cellars', location: '88 Front St S, Issaquah, WA 98027', theme: 0},
-  {name: 'Fivash Cellars', location: '602 234th Ave SE, Sammamish, WA 98074', theme: 0},
-  {name: 'Piccola Cellars', location: '112 W 2nd St, North Bend, WA 98045', theme: 0}
+  {name: 'Charles Smith Wine Jet City', location: '1136 S Albro Pl, Seattle, WA 98108', theme: 0, google_place_id: 'ChIJVym2i-xBkFQRX1O30QaiGIM'},
+  {name: 'Elsom Cellars', location: '2960 4th Ave S, Seattle, WA 98134', average_rating: 5.0, theme: 0, google_place_id: 'ChIJb8KVi8kNkFQR_e7zWgSAneM'},
+  {name: 'Stomani Cellars', location: '1403 Dexter Ave N, Seattle, WA 98109', average_rating: 2.0, theme: 0, google_place_id:'ChIJ4xKG6T0VkFQR-sIc8E4f_dQ'},
+  {name: 'Hand Of God Wines', location: '308 9th Ave N, Seattle, WA 98109', average_rating: 4.0, theme: 0, google_place_id: 'ChIJrceiwjcVkFQRgLvQSohGx7o'},
+  {name: 'The Tasting Room', location: 'Pike Place Market, 1924 Post Alley, Seattle, WA 98101', average_rating: 3.0, theme: 0, google_place_id: 'ChIJQVHlzbJqkFQR3KSsOoYgmr4'},
+  {name: '21 Acres', location: '13701 NE 171st Street, Woodinville, WA 98072', average_rating: 5.0, theme: 0, google_place_id: 'ChIJ34iHbywMkFQR0H2syINxKt8'},
+  {name: 'Adams Bench Winery', location: '14360 160th Pl NE, Woodinville, WA 98072', average_rating: 3.0, theme: 0, google_place_id: 'ChIJQyPIAlEMkFQRvzrV1hVs7LE'},
+  {name: 'Alexandria Nicole Cellars', location: '14810 NE 145th St, Woodinville, WA 98072', average_rating: 4.0, theme: 0, google_place_id: 'ChIJicuRUrMNkFQRMDo0eD9XM1w'},
+  {name: 'áMaurice Cellars', location: '14463 Woodinville-Redmond Rd NE, Woodinville, WA 98072', average_rating: 2.0, theme: 0, google_place_id: 'ChIJh_NZtYYSkFQRKVXSoEwzRCk'},
+  {name: 'Laurelhurst Cellars Winery', location: '5608 7th Ave S, Seattle, WA 98108', theme: 0, google_place_id: 'ChIJa_hkM8BBkFQR0hRYEcdzLRA'},
+  {name: 'Viscon Cellars', location: '5910 California Ave SW, Seattle, WA 98136', theme: 0, google_place_id: 'ChIJTWum_RxBkFQRR1PrcLQfdok'},
+  {name: 'J Bookwalter Tasting Studio', location: '14810 NE 145th St, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJU9O3MlAMkFQRx7gm0DLgcn4'},
+  {name: 'Rolling Bay Winery', location: '10334 Beach Crest, Bainbridge Island, WA 98110', theme: 0, google_place_id: 'ChIJJ2QHwzE8kFQRiIzbeC3eFxY'},
+  {name: 'Fletcher Bay Winery', location: '9415 Coppertop Loop NE, Bainbridge Island, WA 98110', theme: 0, google_place_id: 'ChIJpzYKZyI8kFQRhGGlnMu4lrk'},
+  {name: 'Eleven Winery', location: '287 Winslow Way E, Bainbridge Island, WA 98110', theme: 0, google_place_id: 'ChIJQ38_arc-kFQRV6RHlZ_N1eI'},
+  {name: 'Island Vintners', location: '450 Winslow Way E, Bainbridge Island, WA 98110', theme: 0, google_place_id: 'ChIJ4Unf2bk-kFQREAw2KJPUW7Q'},
+  {name: 'Aspenwood Cellars Winery', location: '18642 142nd Ave NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJT8htJJwOkFQRxRtnkFpEPY4'},
+  {name: 'Waving Tree Winery', location: '11901 124th AVE NE, Kirkland, WA 98034', theme: 0, google_place_id: 'ChIJk9ongX8NkFQRBGUnuyk4yD4'},
+  {name: 'Matthews Winery', location: '16116 140th Pl NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJQ_1q9jMMkFQRuH1vrYJZTpI'},
+  {name: 'Eye of the Needle Winery', location: '19501 144th Ave NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJv2XfnqIOkFQRtEL1yxk5xdk'},
+  {name: 'Northwest Cellars', location: '11909 124th Ave NE, Kirkland, WA 98034', theme: 0, google_place_id: 'ChIJ2-N2gH8NkFQRRrcIuMtQt_I'},
+  {name: 'Eagle Harbor Wine Company', location: '278 Winslow Way E, Bainbridge Island, WA 98110', theme: 0, google_place_id: 'ChIJx1hwarc-kFQRwsrcUAOFVEY'},
+  {name: 'Patterson Cellars', location: '14505 148th Ave NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJvRvgnqIOkFQR_DD-FUKD-Ug'},
+  {name: 'Perennial Vintners', location: '8840 NE Lovgreen Rd, Bainbridge Island, WA 98110', theme: 0, google_place_id: 'ChIJrUIVMlI8kFQRzUC3AK7UAtU'},
+  {name: 'Mark Ryan Winery', location: '14475 Woodinville-redmond Rd NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJObYJHJgOkFQRAPPNexih3zY'},
+  {name: 'Martedi Winery', location: '16110 Woodinville-Redmond Rd NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJhR08f9INkFQRY0ZvozKCTkk'},
+  {name: 'Darby Winery', location: '14450 Woodinville Redmond Rd NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJFTzqMLMNkFQRHPuP_t8ZIyg'},
+  {name: 'Sparkman Cellars', location: '19501 144 Ave. NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJvRvgnqIOkFQRn_n95nhP7P8'},
+  {name: 'Palouse Winery', location: '12431 Vashon Hwy SW, Vashon, WA 98070', theme: 0, google_place_id: 'ChIJv56L2HFGkFQRLutDnEVX5oM'},
+  {name: 'Arista Wine Cellars', location: '320 5th Ave S, Edmonds, WA 98020', theme: 0, google_place_id: 'ChIJY6uJB_oakFQRqJfD0fic-38'},
+  {name: 'Efeste', location: '19730 144th Ave NE, Woodinville, WA 98072', theme: 0, google_place_id: 'ChIJhcUW07wOkFQRxbqvJK16Ckg'},
+  {name: 'Vashon Winery', location: '10317 SW 156th St, Vashon, WA 98070', theme: 0, google_place_id: 'ChIJXRsQcPJFkFQR6RpJJePkuyE'},
+  {name: 'Finn Hill Winery', location: '8218 NE 115th Way, Kirkland, WA 98034', theme: 0, google_place_id: 'ChIJDXHLB0USkFQRJ4bNFkIwW_8'},
+  {name: 'Almquist Family Vintners', location: '198 Nickerson St, Seattle, WA 98109', theme: 0, google_place_id: 'ChIJmbwqTwYVkFQROKjnZ0HRZk8'},
+  {name: 'Barrique', location: '1762 Airport Way S, Seattle, WA 98134', theme: 0, google_place_id: 'ChIJTcHABJtqkFQRV13PMztNl8g'},
+  {name: 'Bartholomew Winery', location: '3100 Airport Way S, Seattle, WA 98134', theme: 0, google_place_id: 'ChIJg8_PzIFqkFQRWpIerh8Xgu8'},
+  {name: 'Cloudlift Cellars', location: '312 S Lucile St, Seattle, WA 98108', theme: 0, google_place_id: 'ChIJIQyGqMBBkFQRSERQywlWvcA'},
+  {name: 'Eight Bells Winery', location: '6213-B Roosevelt Way NE, Seattle, WA 98115', theme: 0, google_place_id: 'ChIJz0ocfm8UkFQRR6e_meDMDvE'},
+  {name: 'Falling Rain Cellars', location: '825 NW 49th Street, Seattle, WA 98107', theme: 0, google_place_id: 'ChIJH9cYpLYVkFQRRcfc1JXQMrs'},
+  {name: 'Kerloo Cellars', location: '3911 1st Ave South, Seattle, WA 98134', theme: 0, google_place_id: 'ChIJn9yTHc1BkFQRHR6BePQfBBs'},
+  {name: 'Nota Bene Cellars', location: '9320 15th Ave S Unit CC, Seattle, WA 98108', theme: 0, google_place_id: 'ChIJJxirmDFCkFQRZz7Mo9zkyZc'},
+  {name: 'O·S Winery', location: '5319 4th Avenue South, Seattle, WA 98108', theme: 0, google_place_id: 'ChIJd81w1DFCkFQRfvWywekjcOw'},
+  {name: 'Robert Ramsay Cellars', location: '1629 Queen Anne Ave N 102, Seattle, WA 98109', theme: 0, google_place_id: 'ChIJT3FvSxMVkFQRtcxKKRVeR70'},
+  {name: 'Structure Cellars', location: '3849 1st Ave So suite D , Seattle, WA 98134', theme: 0, google_place_id: 'ChIJr4Yd2cxBkFQRZ3fgNqX11Ho'},
+  {name: 'The Estates Wine Room', location: '307 Occidental Ave S, Seattle, WA 98104', theme: 0, google_place_id: 'ChIJoz8d16RqkFQRjlWaQ7mhmsA'},
+  {name: 'Two Brothers Winery', location: '3902 California Ave SW, Seattle, WA 98116', theme: 0, google_place_id: 'ChIJM-wktFhAkFQRr1iFrgoZk-s'},
+  {name: 'Ward Johnson Winery', location: '1445 Elliott Ave W, Seattle, WA 98119', theme: 0, google_place_id: 'ChIJldswcmUVkFQRTaUuCxpHRb8'},
+  {name: 'Welcome Road Winery', location: '4415 SW Stevens St, Seattle, WA 98116', theme: 0, google_place_id: 'ChIJZYUT1WBAkFQRv44xhmc8xUw'},
+  {name: 'Capri Cellars', location: '88 Front St S, Issaquah, WA 98027', theme: 0, google_place_id: 'ChIJidvxLYBlkFQR5vaX0vtNPek'},
+  {name: 'Fivash Cellars', location: '602 234th Ave SE, Sammamish, WA 98074', theme: 0, google_place_id: 'ChIJXUJ_5OtxkFQRWya_GEvO8r8'},
+  {name: 'Piccola Cellars', location: '112 W 2nd St, North Bend, WA 98045', theme: 0, google_place_id: 'ChIJ1-YDRCN8kFQRnIW6Ey1Etm4'}
 ]
 
 coffee_biz_data = [
@@ -206,7 +201,6 @@ distillery_biz_data = [
   {name: 'Whiskey Gap Distillery', location: '213 W Main Ave, Ritzville, WA 99169', theme: 2, google_place_id: 'ChIJ2c6opYDenlQRrpttZHKX3X8'},
   {name: 'Wildwood Spirits Co.', location: '19116 Beardslee Blvd #102, Bothell, WA 98011', theme: 2, google_place_id: 'ChIJsczvxmAOkFQRtUEHawfEW6o'},
   {name: 'Wishkah River Distillery', location: '2210 Port Industrial Rd, Aberdeen, WA 98520', theme: 2, google_place_id: 'ChIJrfQ8Zuw5klQRZqgU5heZBdo'},
-  {name: 'Schnapsleiche Spirits', location: '19151 144th Ave NE Woodinville, WA 98072', theme: 2, google_place_id: ''},
   {name: 'SoDo Spirits Distillery', location: '2228 Occidental Ave S Seattle, WA 98134', theme: 2, google_place_id: 'ChIJgTNUuydAkFQRuzWq0nHXWec'},
   {name: 'Bainbridge Organic Distillers', location: '9727 Coppertop Loop NE Bainbridge Island, WA 98110', theme: 2, google_place_id: 'ChIJ7yXoXiI8kFQRFaQyVPhK8WU'},
   {name: 'Tucker Distillery', location: '5451 NW Newbery Hill Rd Silverdale, WA 98383', theme: 2, google_place_id: 'ChIJgQbFN24wkFQRG5HEvMQ5Asw'},
@@ -216,25 +210,17 @@ distillery_biz_data = [
 ]
 
 distillery_biz_data.each do |business_data|
-  business = Business.new(business_data)
-  business.retrieve_google_place_id
-  business.save
+  Business.find_or_create_by(business_data)
 end
 
 beer_biz_data.each do |business_data|
-  business = Business.new(business_data)
-  business.retrieve_google_place_id
-  business.save
+  Business.find_or_create_by(business_data)
 end
 
 coffee_biz_data.each do |business_data|
-  business = Business.new(business_data)
-  business.retrieve_google_place_id
-  business.save
+  Business.find_or_create_by(business_data)
 end
 
 wine_biz_data.each do |business_data|
-  business = Business.new(business_data)
-  business.retrieve_google_place_id
-  business.save
+  Business.find_or_create_by(business_data)
 end
