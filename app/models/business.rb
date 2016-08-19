@@ -30,7 +30,7 @@ class Business < ActiveRecord::Base
 
   def curate_flight(theme, digest, distance_from_leading_biz)
     new_flight = Flight.new(theme: theme, search_digest: digest)
-    businesses_around_self = Business.where(theme: theme).near(self, distance_from_leading_biz)
+    businesses_around_self = Business.where(theme: theme).near(self, distance_from_leading_biz).limit(4)
     new_flight.businesses.concat(businesses_around_self)
     new_flight.save!
     new_flight
