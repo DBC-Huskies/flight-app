@@ -79,7 +79,7 @@ describe 'Business' do
     end
 
     it 'has an average rating' do
-      expect(sbrewing.average_rating).to eq 3.4
+      expect(sbrewing.average_rating).to eq 3
     end
 
   end
