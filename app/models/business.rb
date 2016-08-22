@@ -64,8 +64,6 @@ class Business < ActiveRecord::Base
     values = self.ratings.reload.map do |rating|
       rating.value
     end
-    values << self.average_rating
-    average = values.reduce(:+) / values.size.to_f
     (average*10).ceil / 10.0
   end
 
