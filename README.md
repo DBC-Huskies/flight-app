@@ -1,4 +1,4 @@
-== SipTrip {<img src="https://travis-ci.org/DBC-Huskies/flight-app.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/DBC-Huskies/flight-app]
+# SipTrip [<img src="https://travis-ci.org/DBC-Huskies/flight-app.svg?branch=master" alt="Build Status" />](https://travis-ci.org/DBC-Huskies/flight-app)
 
 With a back-end built on Ruby on Rails and using PostgreSQL, SipTrip is a web app for curating "flights" of local businesses centered around a user's beverage preference. With jQuery and AJAX the interface and flight results are updated in a single page. Use of the Geocoder and BCrypts gems and Google Maps and Places APIs makes for a technically robust user experience in mapping out their adventure.
 
