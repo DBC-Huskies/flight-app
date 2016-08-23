@@ -6,9 +6,9 @@ The first production MVP of SipTrip was completed in one week.
 
 ## Team
 
-[Anya Krupp](www.github.com/cherchezlafemme)
-[Andrew Peterson](www.github.com/ajpeterson)
-[Jacob Rapp](https://github.com/J-Rapp)
+* [Anya Krupp](www.github.com/cherchezlafemme)
+* [Andrew Peterson](www.github.com/ajpeterson)
+* [Jacob Rapp](https://github.com/J-Rapp)
 
 ## Deployment
 
